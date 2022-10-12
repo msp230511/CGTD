@@ -1,5 +1,5 @@
 # README
-## Project Proposal: Custom To-Do List
+## Project: Custom To-Do List
 Team Members: Zhaoyang Liu, Mitch Duerr, Max Spieler, Kaleabe Abera
 
 ## Description
