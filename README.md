@@ -34,3 +34,8 @@ Some of the following features may not be implemented in the final version of th
 - Team Collaboration (Collaborative To-Do list).
 - Multiple, different, separate To-Do lists.
 - Additional features such as email notifications with deadlines.
+
+
+## Useful Testing Docs
+RSPEC: https://www.theodinproject.com/lessons/ruby-introduction-to-rspec
+SIMPLECOV: https://tmtarpinian.com/using-simplecov-for-ruby-tests/
