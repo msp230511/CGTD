@@ -38,4 +38,5 @@ Some of the following features may not be implemented in the final version of th
 
 ## Useful Testing Docs
 RSPEC: https://www.theodinproject.com/lessons/ruby-introduction-to-rspec
+
 SIMPLECOV: https://tmtarpinian.com/using-simplecov-for-ruby-tests/
