@@ -48,12 +48,14 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  # Rspec and Simplecov
-  gem "rspec"
-  gem "rspec-rails"
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'sqlite3', '~> 1.4'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails'
+  gem 'capybara'
   gem 'simplecov'
-  # Use sqlite3 as the database for Active Record
-  gem "sqlite3", "~> 1.4"
   
 end
 

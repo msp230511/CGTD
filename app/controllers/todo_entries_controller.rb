@@ -1,0 +1,2 @@
+class TodoEntriesController < ApplicationController
+end
