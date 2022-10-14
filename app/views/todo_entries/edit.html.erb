@@ -1,0 +1,10 @@
+<h1>Editing todo entry</h1>
+
+<%= render "form", todo_entry: @todo_entry %>
+
+<br>
+
+<div>
+  <%= link_to "Show this todo entry", @todo_entry %> |
+  <%= link_to "Back to todo entries", todo_entries_path %>
+</div>
