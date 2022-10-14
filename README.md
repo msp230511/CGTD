@@ -1,5 +1,5 @@
 # README
-## Project Proposal: Custom To-Do List
+## Project: Custom To-Do List
 Team Members: Zhaoyang Liu, Mitch Duerr, Max Spieler, Kaleabe Abera
 
 ## Description
@@ -40,3 +40,6 @@ Some of the following features may not be implemented in the final version of th
 RSPEC: https://www.theodinproject.com/lessons/ruby-introduction-to-rspec
 
 SIMPLECOV: https://tmtarpinian.com/using-simplecov-for-ruby-tests/
+
+## FIGMA UI Design Deck
+https://www.figma.com/file/cHzFckuABphVBYuj8xSxKP/Untitled?node-id=0%3A1
