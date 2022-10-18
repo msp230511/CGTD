@@ -2,6 +2,9 @@
 ## Project: Custom To-Do List
 Team Members: Zhaoyang Liu, Mitch Duerr, Max Spieler, Kaleabe Abera
 
+# FIGMA UI Design Deck
+https://www.figma.com/file/cHzFckuABphVBYuj8xSxKP/Untitled?node-id=0%3A1
+
 ## Description
 We plan to create a custom To-Do list application for ourselves and others who are interested in using it.
 We plan on having an iterative agile development process.
@@ -41,5 +44,4 @@ RSPEC: https://www.theodinproject.com/lessons/ruby-introduction-to-rspec
 
 SIMPLECOV: https://tmtarpinian.com/using-simplecov-for-ruby-tests/
 
-## FIGMA UI Design Deck
-https://www.figma.com/file/cHzFckuABphVBYuj8xSxKP/Untitled?node-id=0%3A1
+
