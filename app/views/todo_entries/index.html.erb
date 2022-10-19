@@ -25,13 +25,13 @@
                 <%= link_to('Category', todo_entries_path(:order => 'category')) %>
             </th>
             <th>
-                Completed
+                Actions
             </th>
         </tr>
     </thead>
 
     <tbody>
-        <% @todo_entries.each do |p| %>
+        <% @todo_entries.where(completed: false).each do |p| %>
             <tr>
                 <td class="name">
                 <%= link_to "#{p.name}", todo_entry_path(p) %>
@@ -50,11 +50,64 @@
                 </td>
 
                 <td class="completed">
-                <%= "#{p.completed}" %>
+                <%= link_to('EDIT', edit_todo_entry_path(p)) %>
+                <%= link_to('COMPLETE', complete_todo_entry_path(p)) %>
                 </td>
             </tr>
         <% end %>
     </tbody>
 </table>
 
-<%= link_to "Create new to-do item", new_todo_entry_path %>
+<%= link_to("Create new to-do item", new_todo_entry_path, :class => "btn btn-secondary") %>
+
+<h3>Completed Items</h3>
+<table class="table">
+    <thead class="thead-light">
+        <tr class="todo_entries_header">
+            <th>
+                <%= link_to('Task', todo_entries_path(:order => 'name')) %>
+            </th>
+
+            <th>
+                <%= link_to('Priority', todo_entries_path(:order => 'priority')) %>
+            </th>
+
+            <th>
+                <%= link_to('Due Date', todo_entries_path(:order => 'due date')) %>
+            </th>
+    
+            <th>
+                <%= link_to('Category', todo_entries_path(:order => 'category')) %>
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @todo_entries.where(completed: true).each do |p| %>
+            <tr>
+                <td class="name">
+                <%= link_to "#{p.name}", todo_entry_path(p) %>
+                </td>
+
+                <td class="priority">
+                <%= "#{priority_to_string(p.priority)}" %>
+                </td>
+
+                <td class="duedate">
+                <%= "#{p.due_at}" %>
+                </td>
+         
+                <td class="category">
+                <%= "#{p.category}" %>
+                </td>
+
+                <td class="completed">
+                <%= link_to('UNDO COMPLETE', undo_complete_todo_entry_path(p)) %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
