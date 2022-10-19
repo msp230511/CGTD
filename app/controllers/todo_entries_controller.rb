@@ -9,12 +9,20 @@ class TodoEntriesController < ApplicationController
       @todo_entry = TodoEntry.new
     end
 
+    def edit
+      @todo_entry = TodoEntry.find params[:id]
+    end
+
+    def update
+      @todo_entry = TodoEntry.find params[:id]
+      @todo_entry.update(check_params)
+      flash[:notice] = "#{@todo_entry.name} was successfully updated."
+      redirect_to todo_entry_path(@todo_entry)
+    end
+
     def create
       td = TodoEntry.new(check_params)
-      # td = TodoEntry.new
       td.completed = false
-      puts params
-      puts "AFTER PARAMS"
       if td.save
         flash[:notice] = "New task #{td.name} created"
         redirect_to todo_entries_path
