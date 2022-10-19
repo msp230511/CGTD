@@ -10,8 +10,8 @@ class TodoEntriesController < ApplicationController
     end
 
     def create
-      # td = TodoEntry.new(check_params)
-      td = TodoEntry.new
+      td = TodoEntry.new(check_params)
+      # td = TodoEntry.new
       td.completed = false
       puts params
       puts "AFTER PARAMS"
@@ -22,17 +22,16 @@ class TodoEntriesController < ApplicationController
         flash[:alert] = 'Failed to save new task'
         redirect_to new_todo_entry_path
       end
-
-    def show
-        @todo_entries = TodoEntry.all
-        id = params[:id]
-        @todo_entries = TodoEntry.find(id)
     end
 
+    def show
+        id = params[:id]
+        @todo_entry = TodoEntry.all.find(id)
+    end
 
     # private
 
-    # def check_params
-    #   params.require(:todo_entry).permit(:name, :description, :priority, :category, :due_at, :completed)
-    # end
+    def check_params
+      params.require(:todo_entry).permit(:name, :description, :priority, :category, :due_at, :completed)
+    end
 end

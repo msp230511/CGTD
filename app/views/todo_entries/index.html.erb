@@ -24,6 +24,9 @@
             <th>
                 <%= link_to('Category', todo_entries_path(:order => 'category')) %>
             </th>
+            <th>
+                Completed
+            </th>
         </tr>
     </thead>
 
@@ -35,7 +38,7 @@
                 </td>
 
                 <td class="priority">
-                <%= "#{p.priority}" %>
+                <%= "#{priority_to_string(p.priority)}" %>
                 </td>
 
                 <td class="duedate">
@@ -44,6 +47,10 @@
          
                 <td class="category">
                 <%= "#{p.category}" %>
+                </td>
+
+                <td class="completed">
+                <%= "#{p.completed}" %>
                 </td>
             </tr>
         <% end %>

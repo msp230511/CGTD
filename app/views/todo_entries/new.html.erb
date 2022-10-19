@@ -1,6 +1,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-<%= form_with model: @TodoEntry, method: :post, url: {action: "create"}, local: true do |f| %>
+<h2>Create new product</h2>
+<%= form_with model: @todo_entry, method: :post, url: todo_entries_path, local: true do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
@@ -8,10 +9,10 @@
     <%= f.text_field :description %>
     <br>
     <%= f.label :priority %>
-    <%= f.select :priority, [["High", 3], ["Medium", 2], ["Low", 1]], selected: "Low" %>
+    <%= f.select :priority, [["High", 3], ["Medium", 2], ["Low", 1], ["None", nil]], selected: "Low" %>
     <br>
     <%= f.label :category %>
-    <%= f.text_field :category %>
+    <%= f.select :category, [["Personal", "Personal"], ["Work", "Work"], ["None", nil]], selected: "None" %>
     <br>
     <%= f.label :due_at %>
     <%= f.date_select :due_at %>

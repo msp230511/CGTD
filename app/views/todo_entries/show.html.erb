@@ -1,17 +1,17 @@
 <div id="main">
-    <div class="row">
-        <div class="col-md">
-        </div>
+  <div class="row">
+    <div class="col-md">
+      <h1 class="productname">
+        <%= "#{priority_to_string(@todo_entry.priority)}\t\t#{@todo_entry.category}\t\t#{@todo_entry.due_at}"%>
+      </h1>
+      <h2>
+        <%=@todo_entry.name%>
+      </h2>
+      <p>
+        <%=@todo_entry.description%>
+      </p>
     </div>
-
-
-    <table class="table">
-        <thead class="thead-light">
-            <tr class="todo_header">
-                <th>@todo_entries.priority</th>
-                <th>@todo_entries.category</th>
-                <th>@todo_entries.due_at</th>
-            </tr>
-        </thead>
-    </table>
-        
+  </div>
+ 
+  <%= link_to("Back", todo_entries_path, :class => "btn btn-primary") %>
+</div>
