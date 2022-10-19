@@ -34,7 +34,7 @@
         <% @todo_entries.where(completed: false).each do |p| %>
             <tr>
                 <td class="name">
-                <%= link_to "#{p.name}", todo_entry_path(p) %>
+                <%= image_tag("unfinished.png", height:20, width:20, alt:"finished") %> <%= link_to "#{p.name}", todo_entry_path(p) %>
                 </td>
 
                 <td class="priority">
@@ -58,7 +58,7 @@
     </tbody>
 </table>
 
-<p style="text-align:center"> <%= link_to("CREATE TASK", new_todo_entry_path, :class => "btn btn-primary") %></p>
+<p style="text-align:center"> <%= link_to("Create Task", new_todo_entry_path, :class => "btn btn-primary") %></p>
 
 <h3>Completed Items</h3>
 <table class="table">
@@ -89,7 +89,7 @@
         <% @todo_entries.where(completed: true).each do |p| %>
             <tr>
                 <td class="name">
-                <%= link_to "#{p.name}", todo_entry_path(p) %>
+                <%= image_tag("finished.png", height:20, width:20, alt:"finished") %> <%= link_to "#{p.name}", todo_entry_path(p) %>
                 </td>
 
                 <td class="priority">

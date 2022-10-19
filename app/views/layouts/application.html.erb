@@ -16,11 +16,14 @@
   <body>
     <div class="container-fluid">
       <div class="row" id="header">
-        <div class="col-md-2">
-          <%= image_tag("logo-color.png", height:200, width:200, alt:"CGTD-logo") %>
+        <div class="col-md-1">
+          <br>
+          <p style="text-align:center"><%= image_tag("logo-no-background.png", height: "100", width: "250", alt:"CGTD-logo") %>
+          <br>
         </div>
       </div>
     </div>
+    
     <% if flash[:notice] %>
         <div class="row">
           <div class="col-md-4 alert alert-primary notice">
