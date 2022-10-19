@@ -4,9 +4,9 @@ class CreateTodoEntries < ActiveRecord::Migration[7.0]
       # t.references :user
       t.string :name
       t.text :description
-      t.string :priority
+      t.integer :priority
       t.string :category
-      t.date :due_at
+      t.datetime :due_at
       t.boolean :completed, null: false
  
       t.timestamps
