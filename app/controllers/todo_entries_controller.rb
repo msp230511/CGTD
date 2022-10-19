@@ -55,6 +55,13 @@ class TodoEntriesController < ApplicationController
     end
   end
 
+  def destroy
+    @todo_entry = TodoEntry.find(params[:id])
+    @todo_entry.destroy
+    flash[:notice] = "Task #{@todo_entry.name} deleted."
+    redirect_to todo_entries_path
+  end
+
   private
 
   def record_not_found
@@ -65,5 +72,6 @@ class TodoEntriesController < ApplicationController
   def check_params
     params.require(:todo_entry).permit(:name, :description, :priority, :category, :due_at, :completed)
   end
+
 
 end
