@@ -50,15 +50,15 @@
                 </td>
 
                 <td class="completed">
-                <%= link_to('EDIT', edit_todo_entry_path(p)) %>
-                <%= link_to('COMPLETE', complete_todo_entry_path(p)) %>
+                <%= link_to('EDIT', edit_todo_entry_path(p), :class => "btn btn-primary") %>
+                <%= link_to('COMPLETE', complete_todo_entry_path(p) , :class => "btn btn-primary") %>
                 </td>
             </tr>
         <% end %>
     </tbody>
 </table>
 
-<%= link_to("Create new to-do item", new_todo_entry_path, :class => "btn btn-secondary") %>
+<p style="text-align:center"> <%= link_to("Create new to-do item", new_todo_entry_path, :class => "btn btn-secondary") %></p>
 
 <h3>Completed Items</h3>
 <table class="table">
@@ -105,7 +105,7 @@
                 </td>
 
                 <td class="completed">
-                <%= link_to('UNDO COMPLETE', undo_complete_todo_entry_path(p)) %>
+                <%= link_to('UNDO COMPLETE', undo_complete_todo_entry_path(p), :class => "btn btn-primary") %>
                 </td>
             </tr>
         <% end %>

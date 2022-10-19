@@ -13,6 +13,7 @@
     <br>
     <%= f.label :due_at %>
     <%= f.date_select :due_at %>
-  <br>
-  <%= f.submit "Save changes to task" %>
+    <br><br>
+    <%= f.submit("Save changes to task", :class => "btn btn-primary") %> 
+    <%= link_to("Back", todo_entries_path, :class => "btn btn-secondary") %>
 <% end %>
