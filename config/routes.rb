@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     member do
       get 'complete'
       get 'undo_complete'
+      get 'delete'
     end
   end
   
