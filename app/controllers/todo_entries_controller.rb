@@ -10,7 +10,6 @@ class TodoEntriesController < ApplicationController
     @todo_entry = TodoEntry.new
   end
 
-
   def show
     id = params[:id]
     @todo_entry = TodoEntry.find(id)
