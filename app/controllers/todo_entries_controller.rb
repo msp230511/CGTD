@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class TodoEntriesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-      order = params[:order] || 'name'
-      @todo_entries = TodoEntry.all.sorted_by(order)
+    order = params[:order] || 'name'
+    @todo_entries = TodoEntry.all.sorted_by(order)
   end
 
   def new
@@ -24,7 +26,7 @@ class TodoEntriesController < ApplicationController
     @todo_entry.completed = true
     @todo_entry.save
     flash[:notice] = "Successfully Completed Task: #{@todo_entry.name}."
-    redirect_to todo_entries_path()
+    redirect_to todo_entries_path
   end
 
   def undo_complete
@@ -32,10 +34,10 @@ class TodoEntriesController < ApplicationController
     @todo_entry.completed = false
     @todo_entry.save
     flash[:notice] = "Successfully Reactivated Task: #{@todo_entry.name}."
-    redirect_to todo_entries_path()
+    redirect_to todo_entries_path
   end
 
-  def update 
+  def update
     @todo_entry = TodoEntry.find(params[:id])
     @todo_entry.update(check_params)
     flash[:notice] = "Task: #{@todo_entry.name} : was successfully updated."
@@ -72,6 +74,4 @@ class TodoEntriesController < ApplicationController
   def check_params
     params.require(:todo_entry).permit(:name, :description, :priority, :category, :due_at, :completed)
   end
-
-
 end

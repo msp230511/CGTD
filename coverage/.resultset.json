@@ -1,0 +1,57 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/app/helpers/todo_entries_helper.rb": {
+        "lines": [
+          1,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/app/models/todo_entry.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1666275237
+  },
+  "Cucumber Features": {
+    "coverage": {
+    },
+    "timestamp": 1666275326
+  }
+}
