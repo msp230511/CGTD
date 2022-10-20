@@ -50,10 +50,6 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'capybara'
-  gem 'cucumber'
-  gem 'cucumber-rails'
-  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec'
   gem 'rspec-rails'
@@ -76,4 +72,11 @@ end
 
 group :production do
   gem 'pg'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'cucumber'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
 end

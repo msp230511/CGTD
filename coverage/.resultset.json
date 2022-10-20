@@ -51,7 +51,12 @@
   },
   "Cucumber Features": {
     "coverage": {
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/features/step_definitions/feature_steps.rb": {
+        "lines": [
+
+        ]
+      }
     },
-    "timestamp": 1666275326
+    "timestamp": 1666277131
   }
 }
