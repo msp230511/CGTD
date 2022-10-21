@@ -89,23 +89,23 @@
     <tbody>
         <% @todo_entries.where(completed: true).each do |p| %>
             <tr>
-                <td class="name">
+                <td class="task_name">
                 <%= image_tag("finished.png", height:30, width:30, alt:"finished") %> <%= link_to"#{p.name}", todo_entry_path(p), :class => "btn btn-outline-secondary btn-sm" %>
                 </td>
 
-                <td class="priority">
+                <td class="task_priority">
                 <%= "#{priority_to_string(p.priority)}" %>
                 </td>
 
-                <td class="duedate">
+                <td class="task_duedate">
                 <%= "#{p.due_at}" %>
                 </td>
          
-                <td class="category">
+                <td class="task_category">
                 <%= "#{p.category}" %>
                 </td>
 
-                <td class="completed">
+                <td class="task_completed">
                 <%= link_to('UNDO COMPLETE', undo_complete_todo_entry_path(p), :class => "btn btn-light") %>
                 </td>
             </tr>
