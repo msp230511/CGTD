@@ -34,7 +34,7 @@
         <% @todo_entries.where(completed: false).each do |p| %>
             <tr>
                 <td class="task_name">
-                <%= link_to(image_tag("unfinished.png", height:30, width:30, alt:"unfinished"), complete_todo_entry_path(p), class: "complete_task", id: "TEST")  %> <%= link_to "#{p.name}", todo_entry_path(p) , :class => "btn btn-outline-dark btn" %>
+                <%= link_to(image_tag("unfinished.png", height:30, width:30, alt:"unfinished"), complete_todo_entry_path(p), class: "complete_task")  %> <%= link_to "#{p.name}", todo_entry_path(p) , class: "btn btn-outline-dark btn task_show" %>
                 </td>
 
                 <td class="task_priority">
@@ -51,7 +51,6 @@
 
                 <td class="task_actions">
                 <%= link_to(image_tag("edit.png", height:30, width:30, alt:"finished"), edit_todo_entry_path(p), class: "edit_task") %>
-                <%- link_to('COMPLETE', complete_todo_entry_path(p) , :class => "btn btn-success") %>
                 <%= link_to(image_tag("trash.png", height:30, width:30, alt:"finished"), delete_todo_entry_path(p), class: "delete_task") %>
                 </td>
             </tr>
@@ -59,26 +58,26 @@
     </tbody>
 </table>
 
-<p style="text-align:center"> <%= link_to("Create Task", new_todo_entry_path, :class => "btn btn-primary") %></p>
+<p style="text-align:center"> <%= link_to("Create Task", new_todo_entry_path, class: "btn btn-primary create_task") %></p>
 
 <h3>Completed Items</h3>
 <table class="table">
     <thead class="thead-light">
         <tr class="todo_entries_header">
             <th>
-                <%= link_to('Task', todo_entries_path(:order => 'name')) %>
+                <%= link_to('Task', todo_entries_path(:order => 'name'), class: "sort_by_name") %>
             </th>
 
             <th>
-                <%= link_to('Priority', todo_entries_path(:order => 'priority')) %>
+                <%= link_to('Priority', todo_entries_path(:order => 'priority'), class: "sort_by_priority") %>
             </th>
 
             <th>
-                <%= link_to('Due Date', todo_entries_path(:order => 'due date')) %>
+                <%= link_to('Due Date', todo_entries_path(:order => 'due date'), class: "sort_by_due_date") %>
             </th>
     
             <th>
-                <%= link_to('Category', todo_entries_path(:order => 'category')) %>
+                <%= link_to('Category', todo_entries_path(:order => 'category'), class: "sort_by_category") %>
             </th>
             <th>
                 Actions
@@ -90,7 +89,7 @@
         <% @todo_entries.where(completed: true).each do |p| %>
             <tr>
                 <td class="completed_task_name">
-                <%= image_tag("finished.png", height:30, width:30, alt:"finished") %> <%= link_to"#{p.name}", todo_entry_path(p), :class => "btn btn-outline-secondary btn-sm" %>
+                <%= image_tag("finished.png", height:30, width:30, alt:"finished") %> <%= link_to"#{p.name}", todo_entry_path(p), :class => "btn btn-outline-secondary btn-sm task_show" %>
                 </td>
 
                 <td class="completed_task_priority">
