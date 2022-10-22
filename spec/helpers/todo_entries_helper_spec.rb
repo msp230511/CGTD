@@ -19,6 +19,7 @@ RSpec.describe TodoEntriesHelper, type: :helper do
         expect(priority_to_string(3)).to eq('High')
         expect(priority_to_string(2)).to eq('Medium')
         expect(priority_to_string(1)).to eq('Low')
+        expect(priority_to_string(nil)).to eq('None')
       end
 
       it "should handle illegal priorities correctly" do 
