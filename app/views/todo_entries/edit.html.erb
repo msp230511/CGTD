@@ -1,19 +1,25 @@
-<%= form_with model: @todo_entry, method: :put, local: true do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <br>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <br>
-    <%= f.label :priority %>
-    <%= f.select :priority, [["High", 3], ["Medium", 2], ["Low", 1], ["None", nil]], selected: "Low" %>
-    <br>
-    <%= f.label :category %>
-    <%= f.select :category, [["Personal", "Personal"], ["Work", "Work"], ["None", "None"]], selected: "None" %>
-    <br>
-    <%= f.label :due_at %>
-    <%= f.date_select :due_at %>
-    <br><br>
-    <%= f.submit("Save Changes", :class => "btn btn-primary") %> 
-    <%= link_to("Back", todo_entries_path, :class => "btn btn-secondary") %>
-<% end %>
+
+<div class="card bg-light mb-3" style="max-width: 25rem;">
+    <div class="card-header"><h2>Edit Task</h2></div>
+    <div class="card-body">
+        <%= form_with model: @todo_entry, method: :put, local: true do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            <br><br>
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+            <br><br>
+            <%= f.label :priority %>
+            <%= f.select :priority, [["High", 3], ["Medium", 2], ["Low", 1], ["None", nil]], selected: "Low" %>
+            <br><br>
+            <%= f.label :category %>
+            <%= f.select :category, [["Personal", "Personal"], ["Work", "Work"], ["None", "None"]], selected: "None" %>
+            <br><br>
+            <%= f.label :due_at %>
+            <%= f.date_select :due_at %>
+            <br><br>
+            <%= f.submit("Save Changes", :class => "btn btn-primary") %> 
+            <%= link_to("Back", todo_entries_path, :class => "btn btn-secondary") %>
+        <% end %>
+    </div>
+</div>
