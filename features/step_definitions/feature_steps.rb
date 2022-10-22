@@ -20,7 +20,7 @@ end
 # ACTIONS ----------------------------------------------------------
 When('I click the {string} button for the task {string}') do |button_class, task|
   found = false
-  found = true unless (raifind('tr', text: task).find(".#{button_class}").click).nil?
+  found = true unless (find('tr', text: task).find(".#{button_class}").click).nil?
   expect(found).to be(true)
 end
 
