@@ -33,6 +33,14 @@ Then('{string} should be a completed task') do |string|
   expect(all('td.completed_task_name').any? { |td| td.text == string }).to eq(true)
 end
 
+Then('{string} should not be an active task') do |string|
+  expect(all('td.task_name').any? { |td| td.text == string }).to eq(false)
+end
+
+Then('{string} should not be a completed task') do |string|
+  expect(all('td.completed_task_name').any? { |td| td.text == string }).to eq(false)
+end
+
 Then('the task {string} should exist') do |string|
     exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? { |td| td.text == string }
     expect(exists).to be(true)
