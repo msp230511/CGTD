@@ -17,11 +17,26 @@ Then('I should be on the index page') do
   expect(page.current_path).to eq(todo_entries_path).or eq('/')
 end
 
+Then('I should be on the create page') do
+  expect(page.current_path).to eq(new_todo_entry_path)
+end
+
 # ACTIONS ----------------------------------------------------------
 When('I click the {string} button for the task {string}') do |button_class, task|
   found = false
   found = true unless (find('tr', text: task).find(".#{button_class}").click).nil?
   expect(found).to be(true)
+end
+
+When('I press {string}') do |button|
+  click_on button
+end
+
+When('I fill in the following:') do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  table.hashes.each do |field|
+    fill_in field['Field'], with: field['Value']
+  end
 end
 
 # STATES -----------------------------------------------------------
