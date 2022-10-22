@@ -13,5 +13,19 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe TodoEntriesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "priority_to_string" do
+    describe "should correctly map priority integers to corresponding string" do
+      it "should map priorities correctly" do
+        expect(priority_to_string(3)).to eq('High')
+        expect(priority_to_string(2)).to eq('Medium')
+        expect(priority_to_string(1)).to eq('Low')
+      end
+
+      it "should handle illegal priorities correctly" do 
+        expect {priority_to_string(0)}.to raise_error(ArgumentError)
+        expect {priority_to_string(4)}.to raise_error(ArgumentError)
+      end
+
+    end
+  end
 end
