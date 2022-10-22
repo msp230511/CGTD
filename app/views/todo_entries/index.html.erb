@@ -34,7 +34,7 @@
         <% @todo_entries.where(completed: false).each do |p| %>
             <tr>
                 <td class="task_name">
-                <%= link_to(image_tag("unfinished.png", height:30, width:30, alt:"finished"), complete_todo_entry_path(p))  %> <%= link_to "#{p.name}", todo_entry_path(p) , :class => "btn btn-outline-dark btn" %>
+                <%= link_to(image_tag("unfinished.png", height:30, width:30, alt:"unfinished"), complete_todo_entry_path(p), class: "complete_task", id: "TEST")  %> <%= link_to "#{p.name}", todo_entry_path(p) , :class => "btn btn-outline-dark btn" %>
                 </td>
 
                 <td class="task_priority">
@@ -49,10 +49,10 @@
                 <%= "#{p.category}" %>
                 </td>
 
-                <td class="task_completed">
-                <%= link_to(image_tag("edit.png", height:30, width:30, alt:"finished"), edit_todo_entry_path(p)) %>
+                <td class="task_actions">
+                <%= link_to(image_tag("edit.png", height:30, width:30, alt:"finished"), edit_todo_entry_path(p), class: "edit_task") %>
                 <%- link_to('COMPLETE', complete_todo_entry_path(p) , :class => "btn btn-success") %>
-                <%= link_to(image_tag("trash.png", height:30, width:30, alt:"finished"), delete_todo_entry_path(p)) %>
+                <%= link_to(image_tag("trash.png", height:30, width:30, alt:"finished"), delete_todo_entry_path(p), class: "delete_task") %>
                 </td>
             </tr>
         <% end %>
@@ -89,7 +89,7 @@
     <tbody>
         <% @todo_entries.where(completed: true).each do |p| %>
             <tr>
-                <td class="task_name">
+                <td class="completed_task_name">
                 <%= image_tag("finished.png", height:30, width:30, alt:"finished") %> <%= link_to"#{p.name}", todo_entry_path(p), :class => "btn btn-outline-secondary btn-sm" %>
                 </td>
 
@@ -105,8 +105,8 @@
                 <%= "#{p.category}" %>
                 </td>
 
-                <td class="completed_task_completed">
-                <%= link_to('UNDO COMPLETE', undo_complete_todo_entry_path(p), :class => "btn btn-light") %>
+                <td class="completed_task_actions">
+                <%= link_to('UNDO COMPLETE', undo_complete_todo_entry_path(p), class: "btn btn-light undo_complete_task") %>
                 </td>
             </tr>
         <% end %>
