@@ -14,6 +14,7 @@ Scenario: Complete a task
     When I click the "complete_task" button for the task "Take out the trash"
     Then I should be on the index page
     And "Take out the trash" should be a completed task
+    And "Take out the trash" should not be an active task
 
 
 

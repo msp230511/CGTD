@@ -14,3 +14,4 @@ Scenario: Reactivate a task
     When I click the "undo_complete_task" button for the task "Wash the dishes"
     Then I should be on the index page
     And "Wash the dishes" should be an active task
+    And "Wash the dishes" should not be a completed task
