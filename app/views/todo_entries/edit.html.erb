@@ -9,7 +9,7 @@
     <%= f.select :priority, [["High", 3], ["Medium", 2], ["Low", 1], ["None", nil]], selected: "Low" %>
     <br>
     <%= f.label :category %>
-    <%= f.select :category, [["Personal", "Personal"], ["Work", "Work"], ["None", nil]], selected: "None" %>
+    <%= f.select :category, [["Personal", "Personal"], ["Work", "Work"], ["None", "None"]], selected: "None" %>
     <br>
     <%= f.label :due_at %>
     <%= f.date_select :due_at %>
