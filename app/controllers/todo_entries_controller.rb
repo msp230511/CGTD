@@ -46,7 +46,6 @@ class TodoEntriesController < ApplicationController
 
   def create
     td = TodoEntry.new(check_params)
-    # td = TodoEntry.new
     td.completed = false
     if td.save
       flash[:notice] = "New task #{td.name} created"

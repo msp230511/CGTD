@@ -21,6 +21,10 @@ Then('I should be on the create page') do
   expect(page.current_path).to eq(new_todo_entry_path)
 end
 
+Then('I should be on the edit page for {string}') do |name|
+  expect(page.current_path).to eq(edit_todo_entry_path(TodoEntry.find_by_name(name)))
+end
+
 # ACTIONS ----------------------------------------------------------
 When('I click the {string} button for the task {string}') do |button_class, task|
   found = false
