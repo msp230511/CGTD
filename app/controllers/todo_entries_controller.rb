@@ -41,7 +41,7 @@ class TodoEntriesController < ApplicationController
     @todo_entry = TodoEntry.find(params[:id])
     @todo_entry.update(check_params)
     flash[:notice] = "Task: #{@todo_entry.name} : was successfully updated."
-    redirect_to todo_entry_path(@todo_entry)
+    redirect_to todo_entries_path
   end
 
   def create
