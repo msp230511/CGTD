@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class TodoEntriesController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
+  
   def index
     order = params[:order] || 'name'
     @todo_entries = TodoEntry.all.sorted_by(order)
@@ -64,11 +63,6 @@ class TodoEntriesController < ApplicationController
   end
 
   private
-
-  def record_not_found
-    flash[:alert] = 'No such toy'
-    redirect_to products_path
-  end
 
   def check_params
     params.require(:todo_entry).permit(:name, :description, :priority, :category, :due_at, :completed)
