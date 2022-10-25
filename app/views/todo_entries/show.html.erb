@@ -1,15 +1,19 @@
 <div id="main">
   <div class="row">
     <div class="col-md">
-      <h1 class="productname">
-        <%= "#{priority_to_string(@todo_entry.priority)}\t\t#{@todo_entry.category}\t\t#{@todo_entry.due_at}"%>
-      </h1>
-      <h2>
-        <%=@todo_entry.name%>
-      </h2>
-      <p>
-        <%=@todo_entry.description%>
-      </p>
+      <div class="card-header">
+        <h1 class="productname">
+          <%= "#{priority_to_string(@todo_entry.priority)}\t\t#{@todo_entry.category}\t\t#{@todo_entry.due_at}"%>
+        </h1>
+      </div>
+      <div class="card-body">
+        <h2>
+          <%=@todo_entry.name%>
+        </h2>
+        <p>
+          <%=@todo_entry.description%>
+        </p>
+      </div>  
     </div>
   </div>
  
