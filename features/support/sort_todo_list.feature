@@ -9,7 +9,15 @@ Background: There already exists some to do tasks
         | Take out the trash | Do it | 3 | Personal | | false|
         | Finish math homework | Chapter 3, Sec. 5-10 | 2 | Work | | false|
 
-# Scenario: Sort tasks by selected features
-#     Given I am on the index page
-#     When I press "Category1"
-#     Then "Take out the trash" should appear before "Finish math homework"
+Scenario: Sort tasks by selected features
+    Given I am on the index page
+    When I click "category_active"
+    Then "Take out the trash" should appear before "Finish math homework"
+    
+    Given I am on the index page
+    When I click "priority_active"
+    Then "Take out the trash" should appear before "Finish math homework"
+    
+    Given I am on the index page
+    When I click "task_active"
+    Then "Finish math homework" should appear before "Take out the trash"

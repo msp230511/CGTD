@@ -43,6 +43,11 @@ When('I fill in the following:') do |table|
   end
 end
 
+When('I click {string}') do |string|
+  find_link(id: string).click
+  # pending # Write code here that turns the phrase above into concrete actions
+end
+
 # STATES -----------------------------------------------------------
 Then('{string} should be an active task') do |string|
   expect(all('td.task_name').any? { |td| td.text == string }).to eq(true)
@@ -71,7 +76,14 @@ Then('the task {string} should not exist') do |string|
 end
 
 Then('{string} should appear before {string}') do |string, string2|
-  # pending # Write code here that turns the phrase above into concrete actions
+  str_index = 0
+  str2_index = 0
   
-  debugger
+  all('td.task_name').each_with_index do |td, i|
+    str_index = i if td.text == string
+    str2_index = i if td.text == string2
+  end
+  
+  correct_order = str_index < str2_index
+  expect(correct_order).to be(true)
 end
