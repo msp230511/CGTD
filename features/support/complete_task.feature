@@ -7,7 +7,7 @@ Background: There already exists a task that can be completed
     Given these tasks:
         | name | description | priority | category | due_at | completed |
         | Take out the trash | Do it | 3 | Personal | | false|
-        
+    
 Scenario: Complete a task
     Given I am on the index page
     Then "Take out the trash" should be an active task

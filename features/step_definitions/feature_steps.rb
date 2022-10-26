@@ -70,3 +70,8 @@ Then('the task {string} should not exist') do |string|
     expect(exists).to be(false)
 end
 
+Then('{string} should appear before {string}') do |string, string2|
+  # pending # Write code here that turns the phrase above into concrete actions
+  
+  debugger
+end
