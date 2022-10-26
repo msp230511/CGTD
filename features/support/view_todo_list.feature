@@ -14,4 +14,7 @@ Background: There already exists some to do tasks
 Scenario: View the task
     Given I am on the index page
     Then "Do laundry" should be an active task
+    Then "Take out the trash" should be an active task
+    Then "Finish math homework" should be an active task
+    Then "Learn how to do a backflip" should be an active task
     

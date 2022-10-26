@@ -1,20 +1,20 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/zhaoyangliu/Desktop/4-1/Software Engineering/CGTD/features/step_definitions/feature_steps.rb": {
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/features/step_definitions/feature_steps.rb": {
         "lines": [
           null,
           null,
           null,
           1,
           null,
-          6,
-          10,
+          5,
+          8,
           null,
           null,
           null,
           1,
-          7,
+          6,
           null,
           null,
           null,
@@ -38,7 +38,7 @@
           null,
           null,
           1,
-          4,
+          3,
           null,
           null,
           1,
@@ -50,7 +50,7 @@
           null,
           null,
           1,
-          14,
+          26,
           null,
           null,
           1,
@@ -77,14 +77,12 @@
           null,
           1,
           null,
-          1,
-          0,
-          0,
+          null,
           0,
           null
         ]
       },
-      "/Users/zhaoyangliu/Desktop/4-1/Software Engineering/CGTD/app/models/todo_entry.rb": {
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/app/models/todo_entry.rb": {
         "lines": [
           null,
           null,
@@ -97,18 +95,18 @@
           null,
           null,
           1,
-          13,
+          11,
           null,
-          13,
-          13,
-          13,
+          11,
+          11,
+          11,
           null,
-          12,
+          11,
           null,
           null
         ]
       },
-      "/Users/zhaoyangliu/Desktop/4-1/Software Engineering/CGTD/app/models/application_record.rb": {
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -117,15 +115,15 @@
           null
         ]
       },
-      "/Users/zhaoyangliu/Desktop/4-1/Software Engineering/CGTD/app/controllers/todo_entries_controller.rb": {
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/app/controllers/todo_entries_controller.rb": {
         "lines": [
           null,
           null,
           1,
           null,
           1,
-          13,
-          13,
+          11,
+          11,
           null,
           null,
           1,
@@ -191,7 +189,7 @@
           null
         ]
       },
-      "/Users/zhaoyangliu/Desktop/4-1/Software Engineering/CGTD/app/controllers/application_controller.rb": {
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -205,7 +203,7 @@
           null
         ]
       },
-      "/Users/zhaoyangliu/Desktop/4-1/Software Engineering/CGTD/app/helpers/application_helper.rb": {
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -213,23 +211,23 @@
           null
         ]
       },
-      "/Users/zhaoyangliu/Desktop/4-1/Software Engineering/CGTD/app/helpers/todo_entries_helper.rb": {
+      "/mnt/c/Users/max/My Drive/Courses/Software Engineering/Project/CGTD/app/helpers/todo_entries_helper.rb": {
         "lines": [
           null,
           null,
           1,
           1,
-          16,
+          12,
           null,
           null,
-          16,
-          16,
+          12,
+          12,
           null,
           null
         ]
       }
     },
-    "timestamp": 1666745799
+    "timestamp": 1666818855
   },
   "RSpec": {
     "coverage": {
