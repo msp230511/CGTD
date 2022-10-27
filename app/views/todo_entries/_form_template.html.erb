@@ -1,0 +1,19 @@
+    <%= todo_entry_form.label :name %>
+    <%= todo_entry_form.text_field :name %>
+    <br>
+    <br>
+    <%= todo_entry_form.label :description %><br>
+    <%= todo_entry_form.text_area :description %>
+    <br>
+    <br>
+    <%= todo_entry_form.label :priority %>
+    <%= todo_entry_form.select :priority, [["High", 3], ["Medium", 2], ["Low", 1], ["None", nil]], selected: "Low" %>
+    <br>
+    <br>
+    <%= todo_entry_form.label :category %>
+    <%= todo_entry_form.select :category, [["Personal", "Personal"], ["Work", "Work"], ["None", "None"]], selected: "None" %>
+    <br>
+    <br>
+    <%= todo_entry_form.label :due_at %>
+    <%= todo_entry_form.date_select :due_at %>
+    <br><br>
