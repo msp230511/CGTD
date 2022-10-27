@@ -10,19 +10,19 @@
     <thead class="thead-light">
         <tr class="todo_entries_header">
             <th>
-                <%= link_to('Task', todo_entries_path(:order => 'name'), id: "task_active") %>
+                <%= link_to('Task', todo_entries_path(:order => 'name'), id: "sort_by_task_active") %>
             </th>
 
             <th>
-                <%= link_to('Priority', todo_entries_path(:order => 'priority'), id: "priority_active") %>
+                <%= link_to('Priority', todo_entries_path(:order => 'priority'), id: "sort_by_priority_active") %>
             </th>
 
             <th>
-                <%= link_to('Due Date', todo_entries_path(:order => 'due_at'), id: "due_date_active") %>
+                <%= link_to('Due Date', todo_entries_path(:order => 'due_at'), id: "sort_by_due_date_active") %>
             </th>
     
             <th>
-                <%= link_to('Category', todo_entries_path(:order => 'category'), id: "category_active") %>
+                <%= link_to('Category', todo_entries_path(:order => 'category'), id: "sort_by_category_active") %>
             </th>
             <th>
                 Actions
@@ -65,19 +65,19 @@
     <thead class="thead-light">
         <tr class="todo_entries_header">
             <th>
-                <%= link_to('Task', todo_entries_path(:order => 'name'), class: "sort_by_name") %>
+                <%= link_to('Task', todo_entries_path(:order => 'name'), id: "sort_by_task_completed") %>
             </th>
 
             <th>
-                <%= link_to('Priority', todo_entries_path(:order => 'priority'), class: "sort_by_priority") %>
+                <%= link_to('Priority', todo_entries_path(:order => 'priority'), id: "sort_by_priority_completed") %>
             </th>
 
             <th>
-                <%= link_to('Due Date', todo_entries_path(:order => 'due date'), class: "sort_by_due_date") %>
+                <%= link_to('Due Date', todo_entries_path(:order => 'due date'), id: "sort_by_due_date_completed") %>
             </th>
     
             <th>
-                <%= link_to('Category', todo_entries_path(:order => 'category'), class: "sort_by_category") %>
+                <%= link_to('Category', todo_entries_path(:order => 'category'), id: "sort_by_category_completed") %>
             </th>
             <th>
                 Actions

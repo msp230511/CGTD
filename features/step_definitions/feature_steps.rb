@@ -45,6 +45,7 @@ end
 
 When('I click {string}') do |string|
   find_link(id: string).click
+  byebug
   # pending # Write code here that turns the phrase above into concrete actions
 end
 
