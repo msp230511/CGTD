@@ -17,4 +17,3 @@ Scenario: View the task
     Then "Take out the trash" should be an active task
     Then "Finish math homework" should be an active task
     Then "Learn how to do a backflip" should be an active task
-    

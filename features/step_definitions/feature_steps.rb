@@ -83,6 +83,7 @@ Then('{string} should appear before {string}') do |string, string2|
     str_index = i if td.text == string
     str2_index = i if td.text == string2
   end
+  # debugger
   
   correct_order = str_index < str2_index
   expect(correct_order).to be(true)

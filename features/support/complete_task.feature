@@ -15,7 +15,3 @@ Scenario: Complete a task
     Then I should be on the index page
     And "Take out the trash" should be a completed task
     And "Take out the trash" should not be an active task
-
-
-
-
