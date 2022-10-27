@@ -44,12 +44,14 @@ class TodoEntriesController < ApplicationController
 
   def create
     td = TodoEntry.new(check_params)
-    td.completed = false
+    td.completed = false\
+
     if td.save
       flash[:notice] = "New task #{td.name} created"
       redirect_to todo_entries_path
     else
-      flash[:alert] = 'Failed to save new task'
+      flash[:alert] = 'Failed to save new task. Please check your arguments'
+      flash[:alert] = 'Failed to save new task. Task name cannot be nil.' if td.name == ""
       redirect_to new_todo_entry_path
     end
   end

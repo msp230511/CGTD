@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 class TodoEntry < ApplicationRecord
-  #   t.string :name
-  #   t.text :description
-  #   t.string :priority
-  #   t.string :category
-  #   t.date :due_at
-  #   t.boolean :completed, null: false
+  validates :name, :presence => true
 
   def self.sorted_by(field)
     field = field.to_s.downcase
