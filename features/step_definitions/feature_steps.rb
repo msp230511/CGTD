@@ -28,7 +28,7 @@ end
 # ACTIONS ----------------------------------------------------------
 When('I click the {string} button for the task {string}') do |button_class, task|
   found = false
-  found = true unless (find('tr', text: task).find(".#{button_class}").click).nil?
+  found = true unless find('tr', text: task).find(".#{button_class}").click.nil?
   expect(found).to be(true)
 end
 
@@ -45,8 +45,6 @@ end
 
 When('I click {string}') do |string|
   find_link(id: string).click
-  byebug
-  # pending # Write code here that turns the phrase above into concrete actions
 end
 
 # STATES -----------------------------------------------------------
@@ -67,25 +65,29 @@ Then('{string} should not be a completed task') do |string|
 end
 
 Then('the task {string} should exist') do |string|
-    exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? { |td| td.text == string }
-    expect(exists).to be(true)
+  exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? do |td|
+    td.text == string
+  end
+  expect(exists).to be(true)
 end
 
 Then('the task {string} should not exist') do |string|
-    exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? { |td| td.text == string }
-    expect(exists).to be(false)
+  exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? do |td|
+    td.text == string
+  end
+  expect(exists).to be(false)
 end
 
 Then('{string} should appear before {string}') do |string, string2|
   str_index = 0
   str2_index = 0
-  
+
   all('td.task_name').each_with_index do |td, i|
     str_index = i if td.text == string
     str2_index = i if td.text == string2
   end
   # debugger
-  
+
   correct_order = str_index < str2_index
   expect(correct_order).to be(true)
 end
