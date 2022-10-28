@@ -4,14 +4,13 @@
       <div class="card-header">
       <div class="container text-center">
         <div class="row ">
-
           <div class="col">
             <%if priority_to_string(@todo_entry.priority) == 'High' %>
-              <h1 style = "color:red">  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
+              <h1 class = "high-priority">  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
             <%elsif priority_to_string(@todo_entry.priority) == 'Medium'%>
-              <h1 style = "color:orange">  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
+              <h1 class = "medium-priority">  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
             <%elsif priority_to_string(@todo_entry.priority) == 'Low'%>
-              <h1 style = "color:green">  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
+              <h1 class = "low-priority">  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
             <%else%>
               <h1>  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
             <%end%>
