@@ -1,21 +1,39 @@
 <div id="main">
   <div class="row">
-    <div class="col-md">
+    <div class="col-lg text-center">
       <div class="card-header">
-        <h1 class="productname">
-          <%= "#{priority_to_string(@todo_entry.priority)}\t\t#{@todo_entry.category}\t\t#{@todo_entry.due_at}"%>
-        </h1>
+      <div class="container text-center">
+        <div class="row ">
+
+          <div class="col">
+            <%if priority_to_string(@todo_entry.priority) == 'High' %>
+              <h1 style = "color:red">  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
+            <%elsif priority_to_string(@todo_entry.priority) == 'Medium'%>
+              <h1 style = "color:orange">  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
+            <%elsif priority_to_string(@todo_entry.priority) == 'Low'%>
+              <h1 style = "color:green">  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
+            <%else%>
+              <h1>  <%= "#{priority_to_string(@todo_entry.priority)}"%> </h1>
+            <%end%>
+          </div>
+          <div class="col">
+            <h1> <%= "#{@todo_entry.category}"%> </h1>
+          </div>
+          <div class="col">
+            <h1> <%= "#{@todo_entry.due_at}"%> </h1>
+          </div>
+        </div>
       </div>
-      <div class="card-body">
+      <div class="card-body p-3 border bg-light">
         <h2>
           <%=@todo_entry.name%>
         </h2>
-        <p>
+        <p class="show-description">
           <%=@todo_entry.description%>
         </p>
       </div>  
     </div>
   </div>
- 
-  <%= link_to("Back", todo_entries_path, :class => "btn btn-secondary") %>
 </div>
+<br>
+<p class="centered-button" ><%= link_to("Back", todo_entries_path, :class => "btn btn-secondary") %> </p>

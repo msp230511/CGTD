@@ -23,3 +23,16 @@
     margin-bottom: 10px; /* Added */
     margin-top: 5%; /* Added */
 }
+
+.centered-button {
+    text-align: center;
+}
+
+.show-body{
+    height: 100
+}
+
+.show-description{
+    text-align:left
+    font-size: 30px
+}
