@@ -69,16 +69,12 @@ Then('{string} should not be a completed task') do |string|
 end
 
 Then('the task {string} should exist') do |string|
-  exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? do |td|
-    td.text == string
-  end
+  exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? {|td| td.text == string}
   expect(exists).to be(true)
 end
 
 Then('the task {string} should not exist') do |string|
-  exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? do |td|
-    td.text == string
-  end
+  exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? {|td| td.text == string}
   expect(exists).to be(false)
 end
 
