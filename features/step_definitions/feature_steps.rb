@@ -25,6 +25,10 @@ Then('I should be on the edit page for {string}') do |name|
   expect(page.current_path).to eq(edit_todo_entry_path(TodoEntry.find_by_name(name)))
 end
 
+Then('I should be on the show page for {string}') do |name|
+  expect(page.current_path).to eq(todo_entry_path(TodoEntry.find_by_name(name)))
+end
+
 # ACTIONS ----------------------------------------------------------
 When('I click the {string} button for the task {string}') do |button_class, task|
   found = false
@@ -90,4 +94,8 @@ Then('{string} should appear before {string}') do |string, string2|
 
   correct_order = str_index < str2_index
   expect(correct_order).to be(true)
+end
+
+Then('I should see {string}') do |string|
+  expect(page).to have_content(string)
 end
