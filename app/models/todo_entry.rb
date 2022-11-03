@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class TodoEntry < ApplicationRecord
+  belongs_to :todo_list
   validates :name, :presence => true
 
   def self.sorted_by(field)
