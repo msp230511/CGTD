@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class TodoEntriesController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     order = params[:order] || 'name'
     @todo_entries = TodoEntry.all.sorted_by(order)
