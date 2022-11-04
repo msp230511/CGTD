@@ -24,6 +24,7 @@ class TodoEntriesController < ApplicationController
   end
 
   def edit
+    
     @todo_entry = TodoEntry.find(params[:id])
   end
 
@@ -57,12 +58,12 @@ class TodoEntriesController < ApplicationController
 
     if td.save
       flash[:notice] = "New task #{td.name} created"
-      puts "HIT THIS ONE"
       redirect_to todo_lists_path
     else
       flash[:alert] = 'Failed to save new task. Please check your arguments'
       flash[:alert] = 'Failed to save new task. Task name cannot be nil.' if td.name == ""
-      puts "HIT THE OTHER ONE"
+
+      #FIXME: FORM IS FUCKED - CHECK THE <NEW> VIEW
       redirect_to new_todo_entry_path
     end
   end

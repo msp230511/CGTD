@@ -33,8 +33,6 @@ class TodoListsController < ApplicationController
     def delete
     end
 
-    
-
     private 
     
     def load_todo_data
