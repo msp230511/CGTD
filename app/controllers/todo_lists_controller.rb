@@ -12,6 +12,7 @@ class TodoListsController < ApplicationController
 
         # Set active list
         @active_list = @todo_lists.find_by(id: params[:active_list]) || @todo_lists.first
+        # TODO: Add another variable that are all other lists except the active one for the view to render them if they exist
 
         # Pull todo entries for this list
         order = params[:order] || 'name'
