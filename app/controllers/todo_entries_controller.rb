@@ -64,7 +64,7 @@ class TodoEntriesController < ApplicationController
       flash[:alert] = 'Failed to save new task. Task name cannot be nil.' if td.name == ""
 
       #FIXME: FORM IS FUCKED - CHECK THE <NEW> VIEW
-      redirect_to new_todo_entry_path
+      redirect_to new_todo_list_todo_entry_path(@active_list)
     end
   end
 
