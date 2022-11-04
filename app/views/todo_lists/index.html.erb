@@ -1,0 +1,116 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<div class="row">
+    <div class="col-md-3">
+        <h3>
+        <%="CURRENT TODO LIST: #{@active_list.list_name}"%> 
+        </h3>
+        <h3>Tasks To Complete</h3>
+    </div>
+</div>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr class="todo_entries_header">
+            <th>
+                <%= link_to('Task', todo_lists_path(:order => 'name'), id: "sort_by_task_active") %>
+            </th>
+
+            <th>
+                <%= link_to('Priority', todo_lists_path(:order => 'priority'), id: "sort_by_priority_active") %>
+            </th>
+
+            <th>
+                <%= link_to('Due Date', todo_lists_path(:order => 'due_at'), id: "sort_by_due_date_active") %>
+            </th>
+    
+            <th>
+                <%= link_to('Category', todo_lists_path(:order => 'category'), id: "sort_by_category_active") %>
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @active_tasks.each do |p| %>
+            <tr>
+                <td class="task_name">
+                <%= link_to(image_tag("unfinished.png", height:30, width:30, alt:"unfinished"), complete_todo_list_todo_entry_path(@active_list, p), class: "complete_task")  %> <%= link_to "#{p.name}", todo_list_todo_entry_path(@active_list, p) , class: "btn btn-outline-dark btn task_show" %>
+                </td>
+
+                <td class="task_priority">
+                <%= "#{priority_to_string(p.priority)}" %>
+                </td>
+
+                <td class="task_duedate">
+                <%= "#{p.due_at}" %>
+                </td>
+         
+                <td class="task_category">
+                <%= "#{p.category}" %>
+                </td>
+
+                <td class="task_actions">
+                <%= link_to(image_tag("edit.png", height:30, width:30, alt:"finished"), edit_todo_list_todo_entry_path(@active_list, p), class: "edit_task") %>
+                <%= link_to(image_tag("trash.png", height:30, width:30, alt:"finished"), delete_todo_list_todo_entry_path(@active_list, p), class: "delete_task") %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<p class="centered-button"> <%= link_to("Create Task", new_todo_list_todo_entry_path(@active_list), class: "btn btn-primary create_task") %></p>
+
+<h3>Completed Items</h3>
+<table class="table">
+    <thead class="thead-light">
+        <tr class="todo_entries_header">
+            <th>
+                <%= link_to('Task', todo_lists_path(:order => 'name'), id: "sort_by_task_completed") %>
+            </th>
+
+            <th>
+                <%= link_to('Priority', todo_lists_path(:order => 'priority'), id: "sort_by_priority_completed") %>
+            </th>
+
+            <th>
+                <%= link_to('Due Date', todo_lists_path(:order => 'due date'), id: "sort_by_due_date_completed") %>
+            </th>
+    
+            <th>
+                <%= link_to('Category', todo_lists_path(:order => 'category'), id: "sort_by_category_completed") %>
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @completed_tasks.each do |p| %>
+            <tr>
+                <td class="completed_task_name">
+                <%= image_tag("finished.png", height:30, width:30, alt:"finished") %> <%= link_to"#{p.name}", todo_list_todo_entry_path(@active_list, p), :class => "btn btn-outline-secondary btn-sm task_show" %>
+                </td>
+
+                <td class="completed_task_priority">
+                <%= "#{priority_to_string(p.priority)}" %>
+                </td>
+
+                <td class="completed_task_duedate">
+                <%= "#{p.due_at}" %>
+                </td>
+         
+                <td class="completed_task_category">
+                <%= "#{p.category}" %>
+                </td>
+
+                <td class="completed_task_actions">
+                <%= link_to('UNDO COMPLETE', undo_complete_todo_list_todo_entry_path(@active_list, p), class: "btn btn-light undo_complete_task") %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

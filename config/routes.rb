@@ -3,17 +3,16 @@
 Rails.application.routes.draw do
   resources :todo_entries
   devise_for :user
-  root 'todo_entries#index'
-  post 'todo_entries/new', to: 'todo_entries#new'
-  put 'todo_entries/:id/edit' => 'todo_entries#edit'
+  root 'todo_lists#index'
 
-  resources :todo_entries do
-    member do
-      get 'complete'
-      get 'undo_complete'
-      get 'delete'
+  resources :todo_lists do 
+    resources :todo_entries do
+      member do
+        get 'complete'
+        get 'undo_complete'
+        get 'delete'
+      end
     end
   end
 
-  resources :todo_lists 
 end
