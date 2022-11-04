@@ -18,6 +18,9 @@ class TodoListsController < ApplicationController
         @todo_entries = @active_list.todo_entries.all.sorted_by(order)
         @active_tasks = @todo_entries.where(completed: false)
         @completed_tasks = @todo_entries.where(completed: true)
+
+        # Get List of Users
+        @user_list = User.all
     end
 
     def new
