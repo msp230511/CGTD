@@ -16,7 +16,14 @@
     <div class="col-auto">
         <div class="card" style="width: 18rem;">
         <div class="card-header">
-            Todo Lists
+            <div class="row">
+                <div class="col">
+                    <h4>Todo Lists
+                </div>
+                <div class="col text-end">
+                    <%= link_to("+ New", new_todo_list_todo_entry_path(@active_list), class: "btn btn-success create_task") %>
+                </div>
+            </div>
         </div>
             <div class="card-body">
             <a class="list-group-item list-group-item-action active" href="#list-item-1">Active Todo List</a>
@@ -24,6 +31,9 @@
             <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
             <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
             </div>
+            <div class="card-footer">
+            Card footer
+        </div>
         </div>
 
     </div>
