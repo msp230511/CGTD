@@ -7,12 +7,14 @@ class TodoListsController < ApplicationController
         @todo_lists = load_todo_data.all.order(created_at: :asc)
         if @todo_lists.length == 0
             TodoList.create!(:list_name => "List1", :user_id => current_user.id)
+            TodoList.create!(:list_name => "List2", :user_id => current_user.id)
             @todo_lists = load_todo_data.all.order(created_at: :asc)
         end
 
         # Set active list
         @active_list = @todo_lists.find_by(id: params[:active_list]) || @todo_lists.first
-        # TODO: Add another variable that are all other lists except the active one for the view to render them if they exist
+        @non_active_lists = @todo_lists.where("id != ?", @active_list.id)
+        
 
         # Pull todo entries for this list
         order = params[:order] || 'name'
@@ -42,5 +44,9 @@ class TodoListsController < ApplicationController
     def load_todo_data
         current_user.todo_lists.includes(:todo_entries)
     end
+
+    def check_params
+        params.require(:todo_list).permit(:list_name)
+      end
 
 end
