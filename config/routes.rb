@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   root 'todo_lists#index'
 
   resources :todo_lists do 
+    member do
+      post 'new'
+    end
     resources :todo_entries do
       member do
         get 'complete'

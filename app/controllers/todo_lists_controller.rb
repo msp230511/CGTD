@@ -31,6 +31,15 @@ class TodoListsController < ApplicationController
     end
 
     def create
+        list = TodoList.new
+        if list.save
+            flash[:notice] = "New list #{list.list_name} created"
+            redirect_to todo_lists_path
+        else
+            flash[:alert] = 'Failed to save new list. Please check your arguments'
+            flash[:alert] = 'Failed to save new list. List name cannot be nil.' if list.list_name == ""
+            redirect_to new_todo_list_path(@active_list)
+        end
     end
 
     def update
