@@ -47,6 +47,11 @@ class TodoListsController < ApplicationController
     end
 
     def update
+        puts "GOT HERE"
+        @todo_list = TodoList.find(params[:id])
+        @todo_list.update(check_params)
+        flash[:notice] = "List: #{@todo_list.name} : was successfully updated."
+        redirect_to todo_lists_path
     end
 
     def delete
