@@ -18,7 +18,8 @@ class TodoListsController < ApplicationController
         
 
         # Pull todo entries for this list
-        order = params[:order] || 'name'
+        order = params[:order] || session[:order] || 'name'
+        session[:order] = order if !params[:order].nil?
         @todo_entries = @active_list.todo_entries.all.sorted_by(order)
         @active_tasks = @todo_entries.where(completed: false)
         @completed_tasks = @todo_entries.where(completed: true)

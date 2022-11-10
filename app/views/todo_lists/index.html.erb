@@ -49,26 +49,46 @@
     <div class='col'>
         <div class="card">
         <div class="card-header">
-        <h3>Tasks To Complete</h3>
+            <div class="row">
+            <div class="col text-start">
+                <h3>Tasks To Complete</h3>
+            </div>
+            <div class="col-auto">
+                <div class="btn-group" role="group" aria-label="Basic example">
+
+                    <% sort_hash = Hash.new() %>
+                    <% [ 'name', 'priority', 'due_at', 'category'].each do |sort| %>
+                        <% session[:order] == sort ? sort_hash[sort] = "btn btn-secondary active" : sort_hash[sort] = "btn btn-secondary"%>
+                    <% end %>
+                    <button type="button" class="btn btn-disabled">Sorted By</button>
+                    <%= link_to('Task', todo_lists_path(:order => 'name'), id: "sort_by_task_active", class: sort_hash['name']) %>
+                    <%= link_to('Priority', todo_lists_path(:order => 'priority'), id: "sort_by_priority_active", class: sort_hash['priority']) %>
+                    <%= link_to('Due Date', todo_lists_path(:order => 'due_at'), id: "sort_by_due_date_active", class: sort_hash['due_at']) %>
+                    <%= link_to('Category', todo_lists_path(:order => 'category'), id: "sort_by_category_active", class: sort_hash['category'] ) %>
+
+                </div>
+            </div>
+
+            </div>
         </div>
         <div class="card-body">
         <table class="table">
         <thead class="thead-light">
             <tr class="todo_entries_header">
                 <th>
-                    <%= link_to('Task', todo_lists_path(:order => 'name'), id: "sort_by_task_active") %>
+                    Task
                 </th>
 
                 <th>
-                    <%= link_to('Priority', todo_lists_path(:order => 'priority'), id: "sort_by_priority_active") %>
+                    Priority 
                 </th>
 
                 <th>
-                    <%= link_to('Due Date', todo_lists_path(:order => 'due_at'), id: "sort_by_due_date_active") %>
+                    Due Date 
                 </th>
         
                 <th>
-                    <%= link_to('Category', todo_lists_path(:order => 'category'), id: "sort_by_category_active") %>
+                    Category
                 </th>
                 <th>
                     Actions
@@ -111,22 +131,19 @@
         <thead class="thead-light">
             <tr class="todo_entries_header">
                 <th>
-                    <%= link_to('Task', todo_lists_path(:order => 'name'), id: "sort_by_task_completed") %>
+                    Task
                 </th>
 
                 <th>
-                    <%= link_to('Priority', todo_lists_path(:order => 'priority'), id: "sort_by_priority_completed") %>
+                    Priority
                 </th>
 
                 <th>
-                    <%= link_to('Due Date', todo_lists_path(:order => 'due date'), id: "sort_by_due_date_completed") %>
+                    Due Date
                 </th>
         
                 <th>
-                    <%= link_to('Category', todo_lists_path(:order => 'category'), id: "sort_by_category_completed") %>
-                </th>
-                <th>
-                    Actions
+                    Category
                 </th>
             </tr>
         </thead>
@@ -135,7 +152,7 @@
             <% @completed_tasks.each do |p| %>
                 <tr>
                     <td class="completed_task_name">
-                    <%= image_tag("finished.png", height:30, width:30, alt:"finished") %> <%= link_to"#{p.name}", todo_list_todo_entry_path(@active_list, p), :class => "btn btn-outline-secondary btn-sm task_show" %>
+                    <%= link_to(image_tag("finished.png", height:30, width:30, alt:"finished"), undo_complete_todo_list_todo_entry_path(@active_list, p), class: "undo_complete_task") %> <%= link_to"#{p.name}", todo_list_todo_entry_path(@active_list, p), :class => "btn btn-outline-secondary btn-sm task_show" %>
                     </td>
 
                     <td class="completed_task_priority">
@@ -148,10 +165,6 @@
             
                     <td class="completed_task_category">
                     <%= "#{p.category}" %>
-                    </td>
-
-                    <td class="completed_task_actions">
-                    <%= link_to('UNDO COMPLETE', undo_complete_todo_list_todo_entry_path(@active_list, p), class: "btn btn-light undo_complete_task") %>
                     </td>
                 </tr>
             <% end %>
