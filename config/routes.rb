@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :user
   root 'todo_lists#index'
 
-  resources :todo_lists do 
+  resources :todo_lists do
     member do
       post 'new'
       delete 'delete'
@@ -19,5 +19,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
 end

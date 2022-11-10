@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :todo_lists
   # Include default devise modules. Others available are:

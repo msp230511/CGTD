@@ -3,8 +3,7 @@
 class TodoEntriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_active_todo_list # Make sure we have an active list to work with
-  
-  
+
   def index
     redirect_to todo_lists_path
     # order = params[:order] || 'name'
@@ -24,7 +23,6 @@ class TodoEntriesController < ApplicationController
   end
 
   def edit
-    
     @todo_entry = TodoEntry.find(params[:id])
   end
 
@@ -61,7 +59,7 @@ class TodoEntriesController < ApplicationController
       redirect_to todo_lists_path
     else
       flash[:alert] = 'Failed to save new task. Please check your arguments'
-      flash[:alert] = 'Failed to save new task. Task name cannot be nil.' if td.name == ""
+      flash[:alert] = 'Failed to save new task. Task name cannot be nil.' if td.name == ''
       redirect_to new_todo_list_todo_entry_path(@active_list)
     end
   end
@@ -74,6 +72,7 @@ class TodoEntriesController < ApplicationController
   end
 
   private
+
   def set_active_todo_list
     @active_list = params[:todo_list_id]
   end
