@@ -12,7 +12,8 @@ class TodoListsController < ApplicationController
         end
 
         # Set active list
-        @active_list = @todo_lists.find_by(id: params[:active_list]) || @todo_lists.first
+        @active_list = @todo_lists.find_by(id: params[:active_list]) || @todo_lists.find_by(id: session[:active_list]) || @todo_lists.first
+        session[:active_list] = @active_list.id if !params[:active_list].nil?
         @non_active_lists = @todo_lists.where("id != ?", @active_list.id)
         
 
@@ -31,14 +32,17 @@ class TodoListsController < ApplicationController
     end
 
     def create
-        list = TodoList.new
+        list = TodoList.new(check_params)
+        list.user_id = current_user.id
+        puts "ACTUALLY GOT HERE"
         if list.save
+            puts "successfully SAVED"
             flash[:notice] = "New list #{list.list_name} created"
             redirect_to todo_lists_path
         else
             flash[:alert] = 'Failed to save new list. Please check your arguments'
             flash[:alert] = 'Failed to save new list. List name cannot be nil.' if list.list_name == ""
-            redirect_to new_todo_list_path(@active_list)
+            redirect_to new_todo_list_path()
         end
     end
 
@@ -46,6 +50,10 @@ class TodoListsController < ApplicationController
     end
 
     def delete
+        @todo_list = TodoList.find(params[:id])
+        @todo_list.destroy
+        flash[:alert] = "Successfully Deleted List: #{@todo_list.list_name}"
+        redirect_to todo_lists_path
     end
 
     private 

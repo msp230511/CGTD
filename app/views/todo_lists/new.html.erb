@@ -3,12 +3,12 @@
 <div class="card bg-light mb-3" style="max-width: 25rem;">
   <div class="card-header"><h2>Create New Todo List</h2></div>
   <div class="card-body">
-    <%= form_with model: @todo_list, method: :post, url: new_todo_list_path, local: true do |form| %>
+    <%= form_with model: @todo_list, method: :post, local: true do |form| %>
       
         <%= form.label :list_name %>
         <%= form.text_field :list_name %>
         <br>
-
+        <br>
         <%= form.submit("Create", :class => "btn btn-primary") %> 
         <%= link_to("Back", todo_lists_path, :class => "btn btn-secondary") %>
       <% end %>

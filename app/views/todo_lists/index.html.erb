@@ -7,7 +7,13 @@
             <h3><%="CURRENT TODO LIST: #{@active_list.list_name}"%>
         </div>
         <div class="col-auto">
-            <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-warning btn-sm" %>
+            <%= button_to "Edit", edit_todo_list_path(@active_list), method: :get, :class => "btn btn-light" %>
+        </div> 
+        <div class="col-auto">
+            <%= button_to "Delete", delete_todo_list_path(@active_list) , method: :delete, :class => "btn btn-light" %>
+        </div> 
+        <div class="col-auto">
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-light" %>
         </div>
     </nav>
 
@@ -21,16 +27,18 @@
                     <h4>Todo Lists
                 </div>
                 <div class="col text-end">
-                    <%= link_to("+ New", new_todo_list_path(@active_list), class: "btn btn-success create_list") %>
+                    <%= link_to("+ New", new_todo_list_path, class: "btn btn-success create_list") %>
                 </div>
             </div>
         </div>
             <div class="card-body">
-            <a class="list-group-item list-group-item-action active" href="#list-item-1"><%=@active_list.list_name%></a>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-action active"><%=@active_list.list_name%></li>
             <% @non_active_lists.each do |l| %>
-                <a class="list-group-item list-group-item-action" href="#list-item-2"><%=l.list_name%></a>
+                <li class="list-group-item list-group-item-action"><%=link_to(l.list_name, todo_lists_path(:active_list => l.id))%></li>
             <% end %>
             </div>
+            </ul>
             <div class="card-footer">
                 <%="User: #{current_user.email}"%>
                 <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-warning btn-sm" %>
