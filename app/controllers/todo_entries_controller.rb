@@ -4,13 +4,13 @@ class TodoEntriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_active_todo_list # Make sure we have an active list to work with
 
-  def index
-    redirect_to todo_lists_path
-    # order = params[:order] || 'name'
-    # @todo_entries = @active_list.todo_entries.all.sorted_by(order)
-    # @active_tasks = @todo_entries.where(completed: false)
-    # @completed_tasks = @todo_entries.where(completed: true)
-  end
+  # def index
+  #   redirect_to todo_lists_path
+  #   # order = params[:order] || 'name'
+  #   # @todo_entries = @active_list.todo_entries.all.sorted_by(order)
+  #   # @active_tasks = @todo_entries.where(completed: false)
+  #   # @completed_tasks = @todo_entries.where(completed: true)
+  # end
 
   # FIXME: MAKE EVERYTHING BELOW ACTIVE TODOLIST DEPENDENT --> Current Todo List is always -> @active_list
   def new

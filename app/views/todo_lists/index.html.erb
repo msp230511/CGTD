@@ -3,17 +3,17 @@
 <div class="container-fluid">
  <div class="row">
     <nav class="navbar bg-light">
-        <div class="col text-center">
+        <div id="active_list" class="col text-center">
             <h3><%="#{@active_list.list_name}"%>
         </div>
         <div class="col-auto">
-            <%= button_to "Edit", edit_todo_list_path(@active_list), method: :get, :class => "btn btn-light" %>
+            <%= button_to "Edit", edit_todo_list_path(@active_list), method: :get, :class => "btn btn-light edit_todo_list" %>
         </div> 
         <div class="col-auto">
-            <%= button_to "Delete", todo_list_path(@active_list) , method: :delete, :class => "btn btn-light" %>
+            <%= button_to "Delete", todo_list_path(@active_list) , method: :delete, :class => "btn btn-light delete_todo_list" %>
         </div> 
         <div class="col-auto">
-            <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-light" %>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-light log_out_user" %>
         </div>
     </nav>
 
@@ -27,21 +27,21 @@
                     <h4>Todo Lists
                 </div>
                 <div class="col text-end">
-                    <%= link_to("+ New", new_todo_list_path, class: "btn btn-success create_list") %>
+                    <%= link_to("+ New", new_todo_list_path, class: "btn btn-success create_todo_list") %>
                 </div>
             </div>
         </div>
             <div class="card-body">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush" id="user_todo_lists">
             <li class="list-group-item list-group-item-action active"><%=@active_list.list_name%></li>
             <% @non_active_lists.each do |l| %>
                 <li class="list-group-item list-group-item-action"><%=link_to(l.list_name, todo_lists_path(:active_list => l.id))%></li>
             <% end %>
             </div>
             </ul>
-            <div class="card-footer">
+            <div class="card-footer" id="current_user">
                 <%="User: #{current_user.email}"%>
-                <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-warning btn-sm" %>
+                <% button_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-warning btn-sm" %>
             </div>
         </div>
 
@@ -61,10 +61,10 @@
                         <% session[:order] == sort ? sort_hash[sort] = "btn btn-secondary active" : sort_hash[sort] = "btn btn-secondary"%>
                     <% end %>
                     <button type="button" class="btn btn-disabled">Sorted By</button>
-                    <%= link_to('Task', todo_lists_path(:order => 'name'), id: "sort_by_task_active", class: sort_hash['name']) %>
-                    <%= link_to('Priority', todo_lists_path(:order => 'priority'), id: "sort_by_priority_active", class: sort_hash['priority']) %>
-                    <%= link_to('Due Date', todo_lists_path(:order => 'due_at'), id: "sort_by_due_date_active", class: sort_hash['due_at']) %>
-                    <%= link_to('Category', todo_lists_path(:order => 'category'), id: "sort_by_category_active", class: sort_hash['category'] ) %>
+                    <%= link_to('Task', todo_lists_path(:order => 'name'), id: "sort_by_task", class: sort_hash['name']) %>
+                    <%= link_to('Priority', todo_lists_path(:order => 'priority'), id: "sort_by_priority", class: sort_hash['priority']) %>
+                    <%= link_to('Due Date', todo_lists_path(:order => 'due_at'), id: "sort_by_due_date", class: sort_hash['due_at']) %>
+                    <%= link_to('Category', todo_lists_path(:order => 'category'), id: "sort_by_category", class: sort_hash['category'] ) %>
 
                 </div>
             </div>

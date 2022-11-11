@@ -8,7 +8,7 @@ class TodoListsController < ApplicationController
     @todo_lists = load_todo_data.all.order(created_at: :asc)
     if @todo_lists.length.zero?
       TodoList.create!(list_name: 'List1', user_id: current_user.id)
-      TodoList.create!(list_name: 'List2', user_id: current_user.id)
+      # TodoList.create!(list_name: 'List2', user_id: current_user.id)
       @todo_lists = load_todo_data.all.order(created_at: :asc)
     end
 
