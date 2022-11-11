@@ -64,7 +64,7 @@ class TodoEntriesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @todo_entry = TodoEntry.find(params[:id])
     @todo_entry.destroy
     flash[:alert] = "Successfully Deleted Task: #{@todo_entry.name}"

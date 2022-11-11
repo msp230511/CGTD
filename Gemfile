@@ -59,6 +59,7 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'simplecov', require: false
   gem 'sqlite3', '~> 1.4'
+  gem 'jquery-rails'
 end
 
 group :development do
