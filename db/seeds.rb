@@ -9,10 +9,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-User.delete_all
+# User.delete_all
 
-User.create!(email: "admin@colgate.edu", password: "colgate13")
-TodoList.create!(list_name: "List1", user_id: 1)
+# User.create!(email: "admin@colgate.edu", password: "colgate13")
+# TodoList.create!(list_name: "List1", user_id: 1)
 
 # TodoEntry.create!(name: 'Do Laundry', description: 'Do all laundry by tonight', priority: 2, category: 'Personal',
 #                   due_at: Time.now.advance(days: 1).to_s, completed: false)
