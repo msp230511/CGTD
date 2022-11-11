@@ -117,7 +117,8 @@
 
                     <td class="task_actions">
                     <%= link_to(image_tag("edit.png", height:30, width:30, alt:"finished"), edit_todo_list_todo_entry_path(@active_list, p), class: "edit_task") %>
-                    <%= link_to(image_tag("trash.png", height:30, width:30, alt:"finished"), todo_list_todo_entry_path(@active_list, p), method: :delete, class: "delete_task") %>
+                    <%= link_to(image_tag("trash.png", height:30, width:30, alt:"finished"), todo_list_todo_entry_path(@active_list, p), method: :delete, :class => "delete_task") %>
+
                     </td>
                 </tr>
             <% end %>
