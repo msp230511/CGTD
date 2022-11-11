@@ -2,12 +2,12 @@
 <div class="card bg-light mb-3" style="max-width: 25rem;">
     <div class="card-header"><h2>Edit Task</h2></div>
     <div class="card-body">
-        <%= form_with model: @todo_entry, method: :put, local: true do |todo_entry_form| %>
+        <%= form_with model: @todo_entry, url: todo_list_todo_entry_path(@active_list, @todo_entry), method: :put, local: true do |todo_entry_form| %>
             
             <%=render 'form_template', todo_entry_form: todo_entry_form %>
 
             <%= todo_entry_form.submit("Save Changes", :class => "btn btn-primary") %> 
-            <%= link_to("Back", todo_entries_path, :class => "btn btn-secondary") %>
+            <%= link_to("Back", todo_lists_path, :class => "btn btn-secondary") %>
         <% end %>
     </div>
 </div>
