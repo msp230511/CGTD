@@ -39,17 +39,23 @@ class TodoListsController < ApplicationController
       flash[:notice] = "New list #{list.list_name} created"
       redirect_to todo_lists_path
     else
-      flash[:alert] = 'Failed to save new list. Please check your arguments'
-      flash[:alert] = 'Failed to save new list. List name cannot be nil.' if list.list_name == ''
+      flash[:alert] = 'Failed to save new list. Please check your arguments!'
+      # flash[:alert] = 'Failed to save new list. List name cannot be nil.' if list.list_name == ''
       redirect_to new_todo_list_path
     end
   end
 
   def update
     @todo_list = TodoList.find(params[:id])
-    @todo_list.update(check_params)
-    flash[:notice] = "List: #{@todo_list.list_name} : was successfully updated."
-    redirect_to todo_lists_path
+    list_name = @todo_list.list_name
+    if @todo_list.update(check_params)
+      flash[:notice] = "List: #{list_name} was successfully updated to be #{@todo_list.list_name}."
+      redirect_to todo_lists_path
+    else 
+      flash[:alert] = "List: #{list_name} : could not be updated. Please check your arguments!"
+      redirect_to edit_todo_list_path(@todo_list)
+    end
+    
   end
 
   def edit

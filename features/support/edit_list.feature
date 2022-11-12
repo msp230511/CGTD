@@ -38,3 +38,21 @@ Scenario: User can edit a todo list name
     And the list "List2" should exist
     And the list "TestList" should exist
     And the current active list should be "TestList"
+
+Scenario: User should receive appropriate feedback for failure to edit a list
+    Given I am logged in as "user@colgate.edu" with password "colgate13"    
+    Then  I should be on the index page
+    And the list "List1" should exist
+    And the list "List2" should exist
+    And the current active list should be "List1"
+
+    When I press "Edit"
+    Then I should be on the edit page for the list "List1"
+    When I fill in the following:
+    | Field | Value |
+    | List name | |
+    And I press "Save Changes"
+
+    Then I should be on the edit page for the list "List1"
+    And I should see "List: List1 : could not be updated. Please check your arguments!"
+
