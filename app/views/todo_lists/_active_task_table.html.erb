@@ -26,7 +26,7 @@
             <% @active_tasks.each do |p| %>
                 <tr>
                     <td class="task_name">
-                    <%= link_to(image_tag("unfinished.png", height:30, width:30, alt:"unfinished"), complete_todo_list_todo_entry_path(@active_list, p), class: "complete_task")  %> <%= link_to "#{p.name}", todo_list_todo_entry_path(@active_list, p) , class: "btn btn-outline-dark btn task_show" %>
+                    <%= link_to(image_tag("unfinished.png", height:30, width:30, alt:"finish task"), complete_todo_list_todo_entry_path(@active_list, p), class: "complete_task")  %> <%= link_to "#{p.name}", todo_list_todo_entry_path(@active_list, p) , class: "btn btn-outline-dark btn task_show" %>
                     </td>
 
                     <td class="task_priority">

@@ -19,10 +19,6 @@ class TodoEntriesController < ApplicationController
     @todo_entry = TodoEntry.find(id)
   end
 
-  def new
-    @todo_entry = TodoEntry.new
-  end
-
   def edit
     @todo_entry = TodoEntry.find(params[:id])
   end
@@ -32,6 +28,10 @@ class TodoEntriesController < ApplicationController
     @todo_entry.update(check_params)
     flash[:notice] = "Task: #{@todo_entry.name} : was successfully updated."
     redirect_to todo_lists_path
+  end
+
+  def new
+    @todo_entry = TodoEntry.new
   end
 
   def create
