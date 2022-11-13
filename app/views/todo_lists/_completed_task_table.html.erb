@@ -1,0 +1,44 @@
+    <h3>Completed Items</h3>
+    <table class="table">
+        <thead class="thead-light">
+            <tr class="todo_entries_header">
+                <th>
+                    Task
+                </th>
+
+                <th>
+                    Priority
+                </th>
+
+                <th>
+                    Due Date
+                </th>
+        
+                <th>
+                    Category
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @completed_tasks.each do |p| %>
+                <tr>
+                    <td class="completed_task_name">
+                    <%= link_to(image_tag("finished.png", height:30, width:30, alt:"uncomplete task"), undo_complete_todo_list_todo_entry_path(@active_list, p), class: "undo_complete_task") %> <%= link_to"#{p.name}", todo_list_todo_entry_path(@active_list, p), :class => "btn btn-outline-secondary btn-sm task_show" %>
+                    </td>
+
+                    <td class="completed_task_priority">
+                    <%= "#{priority_to_string(p.priority)}" %>
+                    </td>
+
+                    <td class="completed_task_duedate">
+                    <%= "#{p.due_at}" %>
+                    </td>
+            
+                    <td class="completed_task_category">
+                    <%= "#{p.category}" %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+        </table>

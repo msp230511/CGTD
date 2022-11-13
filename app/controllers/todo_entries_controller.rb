@@ -12,34 +12,19 @@ class TodoEntriesController < ApplicationController
   #   # @completed_tasks = @todo_entries.where(completed: true)
   # end
 
-  # FIXME: MAKE EVERYTHING BELOW ACTIVE TODOLIST DEPENDENT --> Current Todo List is always -> @active_list
-  def new
-    @todo_entry = TodoEntry.new
-  end
+  
 
   def show
     id = params[:id]
     @todo_entry = TodoEntry.find(id)
   end
 
+  def new
+    @todo_entry = TodoEntry.new
+  end
+
   def edit
     @todo_entry = TodoEntry.find(params[:id])
-  end
-
-  def complete
-    @todo_entry = TodoEntry.find(params[:id])
-    @todo_entry.completed = true
-    @todo_entry.save
-    flash[:notice] = "Successfully Completed Task: #{@todo_entry.name}."
-    redirect_to todo_lists_path
-  end
-
-  def undo_complete
-    @todo_entry = TodoEntry.find(params[:id])
-    @todo_entry.completed = false
-    @todo_entry.save
-    flash[:notice] = "Successfully Reactivated Task: #{@todo_entry.name}."
-    redirect_to todo_lists_path
   end
 
   def update
@@ -68,6 +53,22 @@ class TodoEntriesController < ApplicationController
     @todo_entry = TodoEntry.find(params[:id])
     @todo_entry.destroy
     flash[:alert] = "Successfully Deleted Task: #{@todo_entry.name}"
+    redirect_to todo_lists_path
+  end
+
+  def complete
+    @todo_entry = TodoEntry.find(params[:id])
+    @todo_entry.completed = true
+    @todo_entry.save
+    flash[:notice] = "Successfully Completed Task: #{@todo_entry.name}."
+    redirect_to todo_lists_path
+  end
+
+  def undo_complete
+    @todo_entry = TodoEntry.find(params[:id])
+    @todo_entry.completed = false
+    @todo_entry.save
+    flash[:notice] = "Successfully Reactivated Task: #{@todo_entry.name}."
     redirect_to todo_lists_path
   end
 

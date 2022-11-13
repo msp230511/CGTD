@@ -1,0 +1,52 @@
+<table class="table">
+        <thead class="thead-light">
+            <tr class="todo_entries_header">
+                <th>
+                    Task
+                </th>
+
+                <th>
+                    Priority 
+                </th>
+
+                <th>
+                    Due Date 
+                </th>
+        
+                <th>
+                    Category
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @active_tasks.each do |p| %>
+                <tr>
+                    <td class="task_name">
+                    <%= link_to(image_tag("unfinished.png", height:30, width:30, alt:"unfinished"), complete_todo_list_todo_entry_path(@active_list, p), class: "complete_task")  %> <%= link_to "#{p.name}", todo_list_todo_entry_path(@active_list, p) , class: "btn btn-outline-dark btn task_show" %>
+                    </td>
+
+                    <td class="task_priority">
+                    <%= "#{priority_to_string(p.priority)}" %>
+                    </td>
+
+                    <td class="task_duedate">
+                    <%= "#{p.due_at}" %>
+                    </td>
+            
+                    <td class="task_category">
+                    <%= "#{p.category}" %>
+                    </td>
+
+                    <td class="task_actions">
+                    <%= link_to(image_tag("edit.png", height:30, width:30, alt:"edit tasl"), edit_todo_list_todo_entry_path(@active_list, p), class: "edit_task") %>
+                    <%= link_to(image_tag("trash.png", height:30, width:30, alt:"delete task"), todo_list_todo_entry_path(@active_list, p), method: :delete, :class => "delete_task") %>
+
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
