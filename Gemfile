@@ -74,8 +74,8 @@ group :development do
 end
 
 group :production do
-  gem 'sqlite3', '~> 1.4'
-  # gem 'pg'
+  # gem 'sqlite3', '~> 1.4'
+  gem 'pg'
 end
 
 group :test do
