@@ -462,7 +462,7 @@
         ]
       }
     },
-    "timestamp": 1668356891
+    "timestamp": 1668358959
   },
   "RSpec": {
     "coverage": {
@@ -568,33 +568,18 @@
           null,
           null,
           null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
           1,
           2,
           null,
           null,
           1,
           0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
           null,
           null,
           1,
@@ -620,6 +605,22 @@
           null,
           null,
           1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
           0,
           0,
           0,
@@ -738,6 +739,6 @@
         ]
       }
     },
-    "timestamp": 1668225400
+    "timestamp": 1668356928
   }
 }
