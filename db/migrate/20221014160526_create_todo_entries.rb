@@ -9,7 +9,7 @@ class CreateTodoEntries < ActiveRecord::Migration[7.0]
       t.string :category
       t.date :due_at
       t.boolean :completed, null: false
-      t.references :todo_list, foreign_key: true
+      t.references :todo_list, foreign_key: { to_table: :todo_lists }
       t.timestamps
     end
   end
