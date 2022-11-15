@@ -30,7 +30,6 @@ class TodoListsController < ApplicationController
       session[:order] == sort ? @sort_hash[sort] = "btn btn-secondary active" : @sort_hash[sort] = "btn btn-secondary"
     end
                   
-
     # Get List of Users
     @user_list = User.all
   end
