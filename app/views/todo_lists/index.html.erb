@@ -33,16 +33,11 @@
             </div>
             <div class="col-auto">
                 <div class="btn-group" role="group" aria-label="Basic example">
-
-                    <% sort_hash = Hash.new() %>
-                    <% [ 'name', 'priority', 'due_at', 'category'].each do |sort| %>
-                        <% session[:order] == sort ? sort_hash[sort] = "btn btn-secondary active" : sort_hash[sort] = "btn btn-secondary"%>
-                    <% end %>
                     <button type="button" class="btn btn-disabled">Sorted By</button>
-                    <%= link_to('Task', todo_lists_path(:order => 'name'), id: "sort_by_task", class: sort_hash['name']) %>
-                    <%= link_to('Priority', todo_lists_path(:order => 'priority'), id: "sort_by_priority", class: sort_hash['priority']) %>
-                    <%= link_to('Due Date', todo_lists_path(:order => 'due_at'), id: "sort_by_due_date", class: sort_hash['due_at']) %>
-                    <%= link_to('Category', todo_lists_path(:order => 'category'), id: "sort_by_category", class: sort_hash['category'] ) %>
+                    <%= link_to('Task', todo_lists_path(:order => 'name'), id: "sort_by_task", class: @sort_hash['name']) %>
+                    <%= link_to('Priority', todo_lists_path(:order => 'priority'), id: "sort_by_priority", class: @sort_hash['priority']) %>
+                    <%= link_to('Due Date', todo_lists_path(:order => 'due_at'), id: "sort_by_due_date", class: @sort_hash['due_at']) %>
+                    <%= link_to('Category', todo_lists_path(:order => 'category'), id: "sort_by_category", class: @sort_hash['category'] ) %>
 
                 </div>
             </div>

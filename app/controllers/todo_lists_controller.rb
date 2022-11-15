@@ -24,6 +24,13 @@ class TodoListsController < ApplicationController
     @active_tasks = @todo_entries.where(completed: false)
     @completed_tasks = @todo_entries.where(completed: true)
 
+    # Set CSS classes for sort formatting
+    @sort_hash = Hash.new()
+    ['name', 'priority', 'due_at', 'category'].each do |sort|
+      session[:order] == sort ? @sort_hash[sort] = "btn btn-secondary active" : @sort_hash[sort] = "btn btn-secondary"
+    end
+                  
+
     # Get List of Users
     @user_list = User.all
   end
