@@ -15,7 +15,7 @@ class User < ApplicationRecord
       user
     else
       User.create!(email: omniauth_info.info.email, uid: omniauth_info.info.uid,
-                    password: Devise.friendly_token[0, 20])
+                   password: Devise.friendly_token[0, 20])
 
     end
   end

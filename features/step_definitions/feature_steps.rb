@@ -35,23 +35,24 @@ Given('I am logged in as {string} with password {string}') do |string, string2|
   click_on 'Log in'
 end
 
-
 # LOCATION ---------------------------------------------------------
 Then('I should be on the index page') do
   expect(page.current_path).to eq(todo_lists_path).or eq('/')
 end
 
 Then('I should be on the create page of list {string}') do |list_name|
-  expect(page.current_path).to eq(new_todo_list_todo_entry_path(TodoList.find_by(list_name: list_name)))
+  expect(page.current_path).to eq(new_todo_list_todo_entry_path(TodoList.find_by(list_name:)))
 end
 
 # FIXME: THESE HAVE DEPENDENCIES ON A LIST
 Then('I should be on the edit page for {string} of list {string}') do |name, list_name|
-  expect(page.current_path).to eq(edit_todo_list_todo_entry_path(TodoList.find_by(list_name: list_name), TodoEntry.find_by_name(name)))
+  expect(page.current_path).to eq(edit_todo_list_todo_entry_path(TodoList.find_by(list_name:),
+                                                                 TodoEntry.find_by_name(name)))
 end
 
 Then('I should be on the show page for {string} of list {string}') do |name, list_name|
-  expect(page.current_path).to eq(todo_list_todo_entry_path(TodoList.find_by(list_name: list_name),TodoEntry.find_by_name(name)))
+  expect(page.current_path).to eq(todo_list_todo_entry_path(TodoList.find_by(list_name:),
+                                                            TodoEntry.find_by_name(name)))
 end
 
 Then('I should be on the sign-in page') do
@@ -63,7 +64,7 @@ Then('I should be on the create page for a new list') do
 end
 
 Then('I should be on the edit page for the list {string}') do |list_name|
-  expect(page.current_path).to eq(edit_todo_list_path(TodoList.find_by(list_name: list_name)))
+  expect(page.current_path).to eq(edit_todo_list_path(TodoList.find_by(list_name:)))
 end
 
 # ACTIONS ----------------------------------------------------------
@@ -123,15 +124,14 @@ Then('{string} should not be a completed task') do |string|
 end
 
 Then('the task {string} should exist') do |string|
-  exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? {|td| td.text == string}
+  exists = (all('td.task_name').to_a + all('td.completed_task_name').to_a).any? { |td| td.text == string }
   expect(exists).to be(true)
 end
 
 Then('the task {string} should not exist') do |string|
-  exists = all('td.task_name').any? { |td| td.text == string } or all('td.completed_task_name').any? {|td| td.text == string}
+  exists = (all('td.task_name').to_a + all('td.completed_task_name').to_a).any? { |td| td.text == string }
   expect(exists).to be(false)
 end
-
 
 Then('{string} should appear before {string}') do |string, string2|
   str_index = 0
@@ -152,7 +152,7 @@ Then('I should see {string}') do |string|
 end
 
 Then('the current active list should be {string}') do |string|
-  within("#active_list") do
+  within('#active_list') do
     expect(page).to have_content(string)
   end
 end
@@ -162,23 +162,23 @@ Then('{string} should be the currently active sorting function') do |string|
 end
 
 Then('the current user should be {string}') do |string|
-  within("#current_user") do
+  within('#current_user') do
     expect(page).to have_content(string)
   end
 end
 
 Then('the list {string} should exist') do |string|
-  within("#user_todo_lists") do 
+  within('#user_todo_lists') do
     expect(page).to have_content(string)
   end
 end
 
 Then('the list {string} should not exist') do |string|
-  within("#user_todo_lists") do 
+  within('#user_todo_lists') do
     expect(page).to have_no_content(string)
   end
 end
 
 Then('the current active list should be empty') do
-    expect((all('td.task_name').length + all('td.completed_task_name').length) == 0).to be(true)
+  expect((all('td.task_name').length + all('td.completed_task_name').length).zero?).to be(true)
 end

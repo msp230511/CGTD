@@ -25,11 +25,11 @@ class TodoListsController < ApplicationController
     @completed_tasks = @todo_entries.where(completed: true)
 
     # Set CSS classes for sort formatting
-    @sort_hash = Hash.new()
-    ['name', 'priority', 'due_at', 'category'].each do |sort|
-      session[:order] == sort ? @sort_hash[sort] = "btn btn-secondary active" : @sort_hash[sort] = "btn btn-secondary"
+    @sort_hash = {}
+    %w[name priority due_at category].each do |sort|
+      @sort_hash[sort] = session[:order] == sort ? 'btn btn-secondary active' : 'btn btn-secondary'
     end
-                  
+
     # Get List of Users
     @user_list = User.all
   end
@@ -57,11 +57,10 @@ class TodoListsController < ApplicationController
     if @todo_list.update(check_params)
       flash[:notice] = "List: #{list_name} was successfully updated to be #{@todo_list.list_name}."
       redirect_to todo_lists_path
-    else 
+    else
       flash[:alert] = "List: #{list_name} : could not be updated. Please check your arguments!"
       redirect_to edit_todo_list_path(@todo_list)
     end
-    
   end
 
   def edit

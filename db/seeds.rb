@@ -8,13 +8,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
 TodoEntry.delete_all
 TodoList.delete_all
 User.delete_all
 
-user = User.create!(email: "admin@colgate.edu", password: "colgate13")
-todo_list = TodoList.create!(list_name: "List1", user_id: user.id)
+user = User.create!(email: 'admin@colgate.edu', password: 'colgate13')
+todo_list = TodoList.create!(list_name: 'List1', user_id: user.id)
 
 TodoEntry.create!(name: 'Do Laundry', description: 'Do all laundry by tonight', priority: 2, category: 'Personal',
                   due_at: Time.now.advance(days: 1).to_s, completed: false, todo_list_id: todo_list.id)

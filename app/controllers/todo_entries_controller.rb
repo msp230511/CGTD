@@ -12,8 +12,6 @@ class TodoEntriesController < ApplicationController
   #   # @completed_tasks = @todo_entries.where(completed: true)
   # end
 
-  
-
   def show
     id = params[:id]
     @todo_entry = TodoEntry.find(id)
