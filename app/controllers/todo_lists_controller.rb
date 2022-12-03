@@ -7,10 +7,12 @@ class TodoListsController < ApplicationController
     # Load all lists and entry data for a given user, create an initial todo list if it is a new user
     @todo_lists = load_todo_data.all.order(created_at: :asc)
     if @todo_lists.length.zero?
-      TodoList.create!(list_name: 'List1', user_id: current_user.id)
+      list1 = TodoList.create(list_name: 'List1')
+      current_user.todo_lists << list1
       # TodoList.create!(list_name: 'List2', user_id: current_user.id)
       @todo_lists = load_todo_data.all.order(created_at: :asc)
     end
+
 
     # Set active list
     @active_list = @todo_lists.find_by(id: params[:active_list]) || @todo_lists.find_by(id: session[:active_list]) || @todo_lists.first
@@ -40,8 +42,8 @@ class TodoListsController < ApplicationController
 
   def create
     list = TodoList.new(check_params)
-    list.user_id = current_user.id
     if list.save
+      current_user.todo_lists << list
       flash[:notice] = "New list #{list.list_name} created"
       redirect_to todo_lists_path
     else
@@ -73,6 +75,30 @@ class TodoListsController < ApplicationController
     flash[:alert] = "Successfully Deleted List: #{@todo_list.list_name}"
     redirect_to todo_lists_path
   end
+
+  def share
+    # Load the active todo list
+    @active_list = TodoList.find(params[:id])
+    render "share"
+  end
+
+  def share_list
+    @active_list = TodoList.find(params[:id])
+    @user = User.find_by(email: params[:user_email])
+
+    # Add the user to the list of users who have access to the todo list
+    if @user && !@active_list.users.include?(@user)
+      @active_list.users << @user
+      flash[:notice] = "Successfully shared list: #{@active_list.list_name} with user: #{@user.email}"
+    elsif @user && @active_list.users.include?(@user)
+      flash[:alert] = "List: #{@active_list.list_name} is already shared with user: #{@user.email}"
+    else
+      flash[:alert] = "Could not find user with email: #{params[:user_email]}"
+    end
+
+    redirect_to todo_lists_path
+  end
+  
 
   private
 

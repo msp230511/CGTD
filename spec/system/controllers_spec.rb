@@ -15,7 +15,8 @@ RSpec.describe 'Controllers', type: :system do
   describe 'create new todo entry' do
     it 'should handle failure correctly' do
       login_as(@user, scope: :user)
-      a = TodoList.create!(list_name: 'Test1', user_id: @user.id)
+      a = TodoList.create!(list_name: 'Test1')
+      @user.todo_lists << a
       b = TodoEntry.new
       allow(TodoEntry).to receive(:new).and_return(b)
       allow(b).to receive(:save).and_return(nil)

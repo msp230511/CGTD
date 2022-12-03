@@ -1,0 +1,14 @@
+<div class="card bg-light mb-3" style="max-width: 25rem;">
+  <div class="card-header"><h2><%="Share List: #{@active_list.list_name}"%></h2></div>
+  <div class="card-body">
+    <%= form_with model: @todo_list, url: share_list_todo_list_path(@active_list), method: :post, local: true do |form| %>
+      
+        <%= form.label :user_email  %>
+        <%= form.text_field :user_email  %>
+        <br>
+        <br>
+        <%= form.submit("Share", :class => "btn btn-primary") %> 
+        <%= link_to("Back", todo_lists_path, :class => "btn btn-secondary") %>
+      <% end %>
+  </div>
+</div>

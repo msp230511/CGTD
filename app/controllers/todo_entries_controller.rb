@@ -33,10 +33,9 @@ class TodoEntriesController < ApplicationController
   end
 
   def create
-    td = TodoEntry.new(check_params)
+    td = @active_list.todo_entries.new(check_params)
     td.completed = false
-    td.todo_list_id = @active_list
-
+    # td.todo_list_id = @active_list
     if td.save
       flash[:notice] = "New task #{td.name} created"
       redirect_to todo_lists_path
@@ -73,7 +72,9 @@ class TodoEntriesController < ApplicationController
   private
 
   def set_active_todo_list
-    @active_list = params[:todo_list_id]
+    # @active_list = current_user.todo_lists.find(params[:todo_list_id])
+    # Find the todo list for the given id and the current user
+    @active_list = current_user.todo_lists.includes(:todo_entries).find_by(id: params[:todo_list_id])
   end
 
   def check_params

@@ -19,8 +19,9 @@ end
 Given('these lists:') do |table|
   # table is a Cucumber::MultilineArgument::DataTable
   table.hashes.each do |h|
-    u = TodoList.new(h)
+    u = TodoList.new(list_name: h['list_name'])
     u.save
+    User.find(h['user_id']).todo_lists << u
   end
 end
 
