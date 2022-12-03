@@ -21,6 +21,6 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %><br />
+    <%= link_to(image_tag("github.png", height:30, width:30, alt:"Sign in with GitHub")+" Sign in with GitHub", omniauth_authorize_path(resource_name, provider), :class => "btn btn-sm btn-secondary", method: :post )%><br />
   <% end %>
 <% end %>
