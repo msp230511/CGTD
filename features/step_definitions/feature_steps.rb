@@ -56,6 +56,11 @@ Then('I should be on the show page for {string} of list {string}') do |name, lis
                                                             TodoEntry.find_by_name(name)))
 end
 
+Then("I should be on the share page for {string}") do |list_name|
+  expect(page).to have_current_path(share_todo_list_path(TodoList.find_by(list_name:)))
+  expect(page).to have_content(list_name)
+  end
+
 Then('I should be on the sign-in page') do
   expect(page.current_path).to eq(new_user_session_path)
 end
@@ -182,4 +187,8 @@ end
 
 Then('the current active list should be empty') do
   expect((all('td.task_name').length + all('td.completed_task_name').length).zero?).to be(true)
+end
+
+Then('the flash message should be {string}') do |string|
+  expect(page).to have_content(string)
 end
