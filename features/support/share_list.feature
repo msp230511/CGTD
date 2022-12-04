@@ -72,3 +72,33 @@ Scenario: User cannot share a todo list with themselves
     And the list "List2" should exist
     And the current active list should be "List1"
     And the flash message should be "List: List1 is already shared with user: user1@example.com"
+
+
+Scenario: User 1 shares a todo list, user 2 now sees the todo list in their list of todo lists
+    Given I am logged in as "user1@example.com" with password "password1"
+    And I am on the index page
+    And the list "List1" should exist
+    And the list "List2" should exist
+    And the current active list should be "List1"
+    When I press "Share"
+    Then I should be on the share page for "List1"
+    When I fill in the following:
+    | Field | Value |
+    | User email | user2@example.com |
+    And I press "Share"
+    Then I should be on the index page
+    And the list "List1" should exist
+    And the list "List2" should exist
+    And the current active list should be "List1"
+    And the flash message should be "Successfully shared list: List1 with user: user2@example.com"
+    When I press "Logout"
+    Then I should be on the sign-in page
+
+    When I login as "user2@example.com" with password "password2"
+    Then I should be on the index page
+    And the list "List1" should exist
+    And the current active list should be "List1"
+    And the current user should be "user2@example.com"
+    And the list "List2" should not exist
+    And the task "Take out the trash" should exist
+    And the task "Walk the dog" should not exist

@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav class="navbar bg-light">
+      <div id="active_list" class="col text-center">
+        <h3>Archived Lists</h3>
+      </div>
+      <div class="col-auto">
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-dark log_out_user" %>
+      </div>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-auto">
+      <%= render 'side_bar' %>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h3>Archived Lists</h3>
+        </div>
+        <div class="card-body">
+          <% if @archived_lists.any? %>
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th>List Name</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @archived_lists.each do |list| %>
+                  <tr>
+                    <td class="list_name"><%= list.list_name %></td>
+                    <td>
+                      <%= link_to "Unarchive", unarchive_todo_list_path(list), method: :patch, class: "btn btn-primary unarchive_list" %> <%= link_to "Delete", todo_list_path(list, archived_page: true) , method: :delete, :class => "btn btn-danger delete_list", data: { confirm: 'Are you sure you want to delete this list?' } %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            <div class="alert alert-info" role="alert">
+                You don't have any archived lists.
+            </div>
+            <% end %>
+        </div>
+        <p class="centered-button"> <%= link_to("Back", todo_lists_path, :class => "btn btn-secondary") %></p>
+        
+    </div>
+    </div>
+</div>
+</div>
+
+
+

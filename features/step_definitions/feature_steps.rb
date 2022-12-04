@@ -56,10 +56,10 @@ Then('I should be on the show page for {string} of list {string}') do |name, lis
                                                             TodoEntry.find_by_name(name)))
 end
 
-Then("I should be on the share page for {string}") do |list_name|
+Then('I should be on the share page for {string}') do |list_name|
   expect(page).to have_current_path(share_todo_list_path(TodoList.find_by(list_name:)))
   expect(page).to have_content(list_name)
-  end
+end
 
 Then('I should be on the sign-in page') do
   expect(page.current_path).to eq(new_user_session_path)
@@ -71,6 +71,10 @@ end
 
 Then('I should be on the edit page for the list {string}') do |list_name|
   expect(page.current_path).to eq(edit_todo_list_path(TodoList.find_by(list_name:)))
+end
+
+Then('I should be on the archived lists page') do
+  expect(page.current_path).to eq(reactivate_todo_list_path(TodoList.all.where(archived: false).first))
 end
 
 # ACTIONS ----------------------------------------------------------
@@ -94,6 +98,12 @@ end
 When('I click the {string} button for the task {string}') do |button_class, task|
   found = false
   found = true unless find('tr', text: task).find(".#{button_class}").click.nil?
+  expect(found).to be(true)
+end
+
+When('I click the {string} button for the to-do list {string}') do |button_class, list|
+  found = false
+  found = true unless find('tr', text: list).find(".#{button_class}").click.nil?
   expect(found).to be(true)
 end
 
@@ -191,4 +201,12 @@ end
 
 Then('the flash message should be {string}') do |string|
   expect(page).to have_content(string)
+end
+
+Then('I should see {string} displayed on the page as an archived list') do |string|
+  expect(all('td.list_name').any? { |entry| entry.text == string }).to be(true)
+end
+
+Then('the list {string} should not exist on the archived lists page') do |string|
+  expect(all('td.list_name').any? { |entry| entry.text == string }).to be(false)
 end

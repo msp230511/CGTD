@@ -47,6 +47,6 @@ Scenario: If a user deletes the last existing todo list, a new default list shou
 
     When I press "Delete"
     Then I should be on the index page
-    And the list "List1" should exist
+    And the list "Default List" should exist
     And the list "List2" should not exist
-    And the current active list should be "List1"
+    And the current active list should be "Default List"

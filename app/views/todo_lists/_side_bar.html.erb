@@ -20,5 +20,6 @@
             <div class="card-footer" id="current_user">
                 <%="User: #{current_user.email}"%>
                 <% button_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-warning btn-sm" %>
+                <%= button_to "Archived Lists", reactivate_todo_list_path(@active_list), method: :get, :class => "btn btn-dark btn-sm" %>
             </div>
 </div>

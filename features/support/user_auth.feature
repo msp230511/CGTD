@@ -20,7 +20,7 @@ Background: There already exists a user account that can be logged in to
 Scenario: Signing Up 
     When I register as "user1@colgate.edu" with password "colgate13"
     Then I should be on the index page
-    And the current active list should be "List1"
+    And the current active list should be "Default List"
     And the current user should be "user1@colgate.edu"
     And the task "Take out the trash" should not exist
 
@@ -43,7 +43,7 @@ Scenario: Logging Out
 Scenario: Singing In -> Logging Out -> Signing in with different account -> todo lists should be seperate for different users
     When I register as "user1@colgate.edu" with password "colgate13"
     Then I should be on the index page
-    And the current active list should be "List1"
+    And the current active list should be "Default List"
     And the current user should be "user1@colgate.edu"
     And the task "Take out the trash" should not exist
     

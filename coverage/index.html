@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-12-03T17:46:59-05:00">2022-12-03T17:46:59-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-12-03T20:26:30-05:00">2022-12-03T20:26:30-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         14.22
+         14.36
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>244</b> relevant lines,
-    <span class="green"><b>244</b> lines covered</span> and
+    <b>272</b> relevant lines,
+    <span class="green"><b>272</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -95,11 +95,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#894c52a552658dd06bda06e70684581242795fd9" class="src_link" title="app/controllers/todo_lists_controller.rb">app/controllers/todo_lists_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">112</td>
-            <td class="cell--number">63</td>
-            <td class="cell--number">63</td>
+            <td class="cell--number">146</td>
+            <td class="cell--number">81</td>
+            <td class="cell--number">81</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">22.21</td>
+            <td class="cell--number">20.20</td>
             
           </tr>
         
@@ -121,7 +121,7 @@
             <td class="cell--number">6</td>
             <td class="cell--number">6</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">53.67</td>
+            <td class="cell--number">55.67</td>
             
           </tr>
         
@@ -154,7 +154,7 @@
             <td class="cell--number">9</td>
             <td class="cell--number">9</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">42.33</td>
+            <td class="cell--number">47.89</td>
             
           </tr>
         
@@ -183,11 +183,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#56f1222156766236d54f8af1b06e7dc2cb19aa0f" class="src_link" title="features/step_definitions/feature_steps.rb">features/step_definitions/feature_steps.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">194</td>
-            <td class="cell--number">101</td>
-            <td class="cell--number">101</td>
+            <td class="cell--number">212</td>
+            <td class="cell--number">111</td>
+            <td class="cell--number">111</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">12.00</td>
+            <td class="cell--number">12.15</td>
             
           </tr>
         
@@ -1307,8 +1307,8 @@
     
 
     <div class="t-line-summary">
-      <b>63</b> relevant lines.
-      <span class="green"><b>63</b> lines covered</span> and
+      <b>81</b> relevant lines.
+      <span class="green"><b>81</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -1397,8 +1397,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="8">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="8">
+            <span class="hits">82</span>
             
 
             
@@ -1408,13 +1408,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="9">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="9">
+            <span class="hits">82</span>
             
 
             
 
-            <code class="ruby">    if @todo_lists.length.zero?</code>
+            <code class="ruby">    if @todo_lists.length.zero? || @todo_lists.where(archived: false).length.zero?</code>
           </li>
         </div>
       
@@ -1425,7 +1425,7 @@
 
             
 
-            <code class="ruby">      list1 = TodoList.create(list_name: &#39;List1&#39;)</code>
+            <code class="ruby">      list1 = TodoList.create(list_name: &#39;Default List&#39;)</code>
           </li>
         </div>
       
@@ -1491,35 +1491,24 @@
 
             
 
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="17">
-            
-            
-
-            
-
             <code class="ruby">    # Set active list</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="18">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="17">
+            <span class="hits">82</span>
             
 
             
 
-            <code class="ruby">    @active_list = @todo_lists.find_by(id: params[:active_list]) || @todo_lists.find_by(id: session[:active_list]) || @todo_lists.first</code>
+            <code class="ruby">    @active_list = @todo_lists.find_by(id: params[:active_list]) || @todo_lists.find_by(id: session[:active_list]) || @todo_lists.where(archived: false).first</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="19">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="18">
+            <span class="hits">82</span>
             
 
             
@@ -1529,13 +1518,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="20">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="19">
+            <span class="hits">82</span>
             
 
             
 
-            <code class="ruby">    @non_active_lists = @todo_lists.where(&#39;id != ?&#39;, @active_list.id)</code>
+            <code class="ruby">    @non_active_lists = @todo_lists.where(&#39;id != ?&#39;, @active_list.id).where(archived: false)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="20">
+            
+            
+
+            
+
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1546,24 +1546,13 @@
 
             
 
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="22">
-            
-            
-
-            
-
             <code class="ruby">    # Pull todo entries for this list</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="23">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="22">
+            <span class="hits">82</span>
             
 
             
@@ -1573,8 +1562,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="24">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="23">
+            <span class="hits">82</span>
             
 
             
@@ -1584,8 +1573,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="25">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="24">
+            <span class="hits">82</span>
             
 
             
@@ -1595,8 +1584,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="26">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="25">
+            <span class="hits">82</span>
             
 
             
@@ -1606,13 +1595,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="27">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="26">
+            <span class="hits">82</span>
             
 
             
 
             <code class="ruby">    @completed_tasks = @todo_entries.where(completed: true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="27">
+            
+            
+
+            
+
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1623,24 +1623,13 @@
 
             
 
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="29">
-            
-            
-
-            
-
             <code class="ruby">    # Set CSS classes for sort formatting</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="30">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="29">
+            <span class="hits">82</span>
             
 
             
@@ -1650,8 +1639,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="31">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="30">
+            <span class="hits">82</span>
             
 
             
@@ -1661,13 +1650,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="288" data-linenumber="32">
-            <span class="hits">288</span>
+          <li class="covered" data-hits="328" data-linenumber="31">
+            <span class="hits">328</span>
             
 
             
 
             <code class="ruby">      @sort_hash[sort] = session[:order] == sort ? &#39;btn btn-secondary active&#39; : &#39;btn btn-secondary&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="32">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1678,7 +1678,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1689,29 +1689,29 @@
 
             
 
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="35">
-            
-            
-
-            
-
             <code class="ruby">    # Get List of Users</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="36">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="82" data-linenumber="35">
+            <span class="hits">82</span>
             
 
             
 
             <code class="ruby">    @user_list = User.all</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="36">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1722,23 +1722,12 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="38">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="39">
+          <li class="covered" data-hits="2" data-linenumber="38">
             <span class="hits">2</span>
             
 
@@ -1749,7 +1738,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="40">
+          <li class="covered" data-hits="3" data-linenumber="39">
             <span class="hits">3</span>
             
 
@@ -1760,7 +1749,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="41">
+          <li class="never" data-hits="" data-linenumber="40">
             
             
 
@@ -1771,7 +1760,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 
@@ -1782,7 +1771,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="43">
+          <li class="covered" data-hits="2" data-linenumber="42">
             <span class="hits">2</span>
             
 
@@ -1793,7 +1782,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="44">
+          <li class="covered" data-hits="2" data-linenumber="43">
             <span class="hits">2</span>
             
 
@@ -1804,7 +1793,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="45">
+          <li class="covered" data-hits="2" data-linenumber="44">
             <span class="hits">2</span>
             
 
@@ -1815,7 +1804,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="46">
+          <li class="covered" data-hits="1" data-linenumber="45">
             <span class="hits">1</span>
             
 
@@ -1826,7 +1815,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="47">
+          <li class="covered" data-hits="1" data-linenumber="46">
             <span class="hits">1</span>
             
 
@@ -1837,7 +1826,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="48">
+          <li class="covered" data-hits="1" data-linenumber="47">
             <span class="hits">1</span>
             
 
@@ -1848,7 +1837,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
+          <li class="never" data-hits="" data-linenumber="48">
             
             
 
@@ -1859,7 +1848,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="50">
+          <li class="covered" data-hits="1" data-linenumber="49">
             <span class="hits">1</span>
             
 
@@ -1870,7 +1859,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="51">
+          <li class="never" data-hits="" data-linenumber="50">
             
             
 
@@ -1881,7 +1870,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="52">
+          <li class="covered" data-hits="1" data-linenumber="51">
             <span class="hits">1</span>
             
 
@@ -1892,13 +1881,24 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="53">
+          <li class="never" data-hits="" data-linenumber="52">
             
             
 
             
 
             <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="53">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1909,23 +1909,12 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="55">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="56">
+          <li class="covered" data-hits="2" data-linenumber="55">
             <span class="hits">2</span>
             
 
@@ -1936,7 +1925,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="57">
+          <li class="covered" data-hits="2" data-linenumber="56">
             <span class="hits">2</span>
             
 
@@ -1947,7 +1936,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="58">
+          <li class="covered" data-hits="2" data-linenumber="57">
             <span class="hits">2</span>
             
 
@@ -1958,7 +1947,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="59">
+          <li class="covered" data-hits="2" data-linenumber="58">
             <span class="hits">2</span>
             
 
@@ -1969,7 +1958,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="60">
+          <li class="covered" data-hits="1" data-linenumber="59">
             <span class="hits">1</span>
             
 
@@ -1980,7 +1969,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="61">
+          <li class="covered" data-hits="1" data-linenumber="60">
             <span class="hits">1</span>
             
 
@@ -1991,7 +1980,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="62">
+          <li class="never" data-hits="" data-linenumber="61">
             
             
 
@@ -2002,7 +1991,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="63">
+          <li class="covered" data-hits="1" data-linenumber="62">
             <span class="hits">1</span>
             
 
@@ -2013,7 +2002,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="64">
+          <li class="covered" data-hits="1" data-linenumber="63">
             <span class="hits">1</span>
             
 
@@ -2024,7 +2013,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="65">
+          <li class="never" data-hits="" data-linenumber="64">
             
             
 
@@ -2035,7 +2024,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="66">
+          <li class="never" data-hits="" data-linenumber="65">
             
             
 
@@ -2046,7 +2035,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="67">
+          <li class="never" data-hits="" data-linenumber="66">
             
             
 
@@ -2057,7 +2046,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="68">
+          <li class="covered" data-hits="2" data-linenumber="67">
             <span class="hits">2</span>
             
 
@@ -2068,13 +2057,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="69">
+          <li class="covered" data-hits="3" data-linenumber="68">
             <span class="hits">3</span>
             
 
             
 
             <code class="ruby">    @todo_list = TodoList.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="69">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -2085,23 +2085,12 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="71">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="72">
+          <li class="covered" data-hits="2" data-linenumber="71">
             <span class="hits">2</span>
             
 
@@ -2112,8 +2101,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="73">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="72">
+            <span class="hits">4</span>
             
 
             
@@ -2123,8 +2112,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="74">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="73">
+            <span class="hits">4</span>
             
 
             
@@ -2134,8 +2123,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="75">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="74">
+            <span class="hits">4</span>
             
 
             
@@ -2145,24 +2134,35 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="76">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="75">
+            
             
 
             
 
-            <code class="ruby">    redirect_to todo_lists_path</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="77">
+          <li class="covered" data-hits="4" data-linenumber="76">
+            <span class="hits">4</span>
             
+
+            
+
+            <code class="ruby">    if params[:archived_page]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="77">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      redirect_to reactivate_todo_list_path(TodoList.find_by(id: session[:active_list]))</code>
           </li>
         </div>
       
@@ -2173,18 +2173,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="79">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="3" data-linenumber="79">
+            <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">  def share</code>
+            <code class="ruby">      redirect_to todo_lists_path</code>
           </li>
         </div>
       
@@ -2195,34 +2195,12 @@
 
             
 
-            <code class="ruby">    # Load the active todo list</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="81">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">    @active_list = TodoList.find(params[:id])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="82">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">    render &quot;share&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="83">
+          <li class="never" data-hits="" data-linenumber="81">
             
             
 
@@ -2233,7 +2211,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="84">
+          <li class="never" data-hits="" data-linenumber="82">
             
             
 
@@ -2244,19 +2222,30 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="85">
+          <li class="covered" data-hits="2" data-linenumber="83">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">  def share_list</code>
+            <code class="ruby">  def share</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="86">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="84">
+            
+            
+
+            
+
+            <code class="ruby">    # Load the active todo list</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="85">
+            <span class="hits">4</span>
             
 
             
@@ -2266,13 +2255,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="87">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="86">
+            <span class="hits">4</span>
             
 
             
 
-            <code class="ruby">    @user = User.find_by(email: params[:user_email])</code>
+            <code class="ruby">    render &#39;share&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="87">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -2288,106 +2288,40 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="89">
-            
-            
-
-            
-
-            <code class="ruby">    # Add the user to the list of users who have access to the todo list</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="90">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">    if @user &amp;&amp; !@active_list.users.include?(@user)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="91">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      @active_list.users &lt;&lt; @user</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="92">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      flash[:notice] = &quot;Successfully shared list: #{@active_list.list_name} with user: #{@user.email}&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="93">
+          <li class="covered" data-hits="2" data-linenumber="89">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    elsif @user &amp;&amp; @active_list.users.include?(@user)</code>
+            <code class="ruby">  def share_list</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="94">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="4" data-linenumber="90">
+            <span class="hits">4</span>
             
 
             
 
-            <code class="ruby">      flash[:alert] = &quot;List: #{@active_list.list_name} is already shared with user: #{@user.email}&quot;</code>
+            <code class="ruby">    @active_list = TodoList.find(params[:id])</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="95">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="91">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">    else</code>
+            
+
+            <code class="ruby">    @user = User.find_by(email: params[:user_email])</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="96">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      flash[:alert] = &quot;Could not find user with email: #{params[:user_email]}&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="97">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="98">
+          <li class="never" data-hits="" data-linenumber="92">
             
             
 
@@ -2398,24 +2332,90 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="99">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="93">
+            
             
 
             
 
-            <code class="ruby">    redirect_to todo_lists_path</code>
+            <code class="ruby">    # Add the user to the list of users who have access to the todo list</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="100">
+          <li class="covered" data-hits="4" data-linenumber="94">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    if @user &amp;&amp; !@active_list.users.include?(@user)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="95">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      @active_list.users &lt;&lt; @user</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="96">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      flash[:notice] = &quot;Successfully shared list: #{@active_list.list_name} with user: #{@user.email}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="97">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    elsif @user &amp;&amp; @active_list.users.include?(@user)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="98">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      flash[:alert] = &quot;List: #{@active_list.list_name} is already shared with user: #{@user.email}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="99">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="100">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      flash[:alert] = &quot;Could not find user with email: #{params[:user_email]}&quot;</code>
           </li>
         </div>
       
@@ -2426,7 +2426,7 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -2442,13 +2442,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="103">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="4" data-linenumber="103">
+            <span class="hits">4</span>
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">    redirect_to todo_lists_path</code>
           </li>
         </div>
       
@@ -2459,29 +2459,29 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="105">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="105">
+          <li class="covered" data-hits="2" data-linenumber="106">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">  def load_todo_data</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="75" data-linenumber="106">
-            <span class="hits">75</span>
-            
-
-            
-
-            <code class="ruby">    current_user.todo_lists.includes(:todo_entries)</code>
+            <code class="ruby">  def archive</code>
           </li>
         </div>
       
@@ -2492,12 +2492,23 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    # Find the todo list to be archived</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="108">
+          <li class="covered" data-hits="2" data-linenumber="108">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    @todo_list = TodoList.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="109">
             
             
 
@@ -2508,29 +2519,73 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="109">
+          <li class="never" data-hits="" data-linenumber="110">
+            
+            
+
+            
+
+            <code class="ruby">    # Set the &#39;archived&#39; field to true</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="111">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">  def check_params</code>
+            <code class="ruby">    @todo_list.update(archived: true)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="110">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="2" data-linenumber="112">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    params.require(:todo_list).permit(:list_name)</code>
+            <code class="ruby">    session[:active_list] = load_todo_data.where(&#39;id != ?&#39;, @todo_list.id).where(archived: false).first&amp;.id || nil</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="111">
+          <li class="never" data-hits="" data-linenumber="113">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="114">
+            
+            
+
+            
+
+            <code class="ruby">    # Redirect to the list of todo lists with a success message</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="115">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    redirect_to todo_lists_path, notice: &quot;List #{@todo_list.list_name} has been archived.&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="116">
             
             
 
@@ -2541,7 +2596,326 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="112">
+          <li class="never" data-hits="" data-linenumber="117">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="118">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">  def reactivate</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="119">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    @active_list = TodoList.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="120">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    session[:active_list] = @active_list.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="121">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    @archived_lists = load_todo_data.where(&#39;id != ?&#39;, @active_list.id).where(archived: true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="122">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    @non_active_lists = load_todo_data.where(&#39;id != ?&#39;, @active_list.id).where(archived: false)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="123">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    render &#39;reactivate&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="124">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="125">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="126">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">  def unarchive</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="127">
+            
+            
+
+            
+
+            <code class="ruby">    # Find the todo list to be reactivated</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="128">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    @todo_list = TodoList.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="129">
+            
+            
+
+            
+
+            <code class="ruby">    # Set the &#39;archived&#39; field to false</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="130">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    @todo_list.update(archived: false)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="131">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    session[:active_list] = @todo_list.id || nil</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="132">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="133">
+            
+            
+
+            
+
+            <code class="ruby">    # Redirect to the list of todo lists with a success message</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="134">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    redirect_to todo_lists_path, notice: &quot;List #{@todo_list.list_name} has been reactivated.&quot; and return</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="135">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="136">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="137">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">  private</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="138">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="139">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">  def load_todo_data</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="93" data-linenumber="140">
+            <span class="hits">93</span>
+            
+
+            
+
+            <code class="ruby">    current_user.todo_lists.includes(:todo_entries)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="141">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="142">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="143">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">  def check_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="144">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    params.require(:todo_list).permit(:list_name)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="145">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="146">
             
             
 
@@ -2702,8 +3076,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="106" data-linenumber="5">
-            <span class="hits">106</span>
+          <li class="covered" data-hits="110" data-linenumber="5">
+            <span class="hits">110</span>
             
 
             
@@ -2713,8 +3087,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="106" data-linenumber="6">
-            <span class="hits">106</span>
+          <li class="covered" data-hits="110" data-linenumber="6">
+            <span class="hits">110</span>
             
 
             
@@ -2757,8 +3131,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="104" data-linenumber="10">
-            <span class="hits">104</span>
+          <li class="covered" data-hits="108" data-linenumber="10">
+            <span class="hits">108</span>
             
 
             
@@ -3059,8 +3433,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="78" data-linenumber="8">
-            <span class="hits">78</span>
+          <li class="covered" data-hits="88" data-linenumber="8">
+            <span class="hits">88</span>
             
 
             
@@ -3081,8 +3455,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="78" data-linenumber="10">
-            <span class="hits">78</span>
+          <li class="covered" data-hits="88" data-linenumber="10">
+            <span class="hits">88</span>
             
 
             
@@ -3092,8 +3466,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="75" data-linenumber="11">
-            <span class="hits">75</span>
+          <li class="covered" data-hits="85" data-linenumber="11">
+            <span class="hits">85</span>
             
 
             
@@ -3103,8 +3477,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="74" data-linenumber="12">
-            <span class="hits">74</span>
+          <li class="covered" data-hits="84" data-linenumber="12">
+            <span class="hits">84</span>
             
 
             
@@ -3125,8 +3499,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="68" data-linenumber="14">
-            <span class="hits">68</span>
+          <li class="covered" data-hits="78" data-linenumber="14">
+            <span class="hits">78</span>
             
 
             
@@ -3557,8 +3931,8 @@
     
 
     <div class="t-line-summary">
-      <b>101</b> relevant lines.
-      <span class="green"><b>101</b> lines covered</span> and
+      <b>111</b> relevant lines.
+      <span class="green"><b>111</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -3625,8 +3999,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="27" data-linenumber="6">
-            <span class="hits">27</span>
+          <li class="covered" data-hits="28" data-linenumber="6">
+            <span class="hits">28</span>
             
 
             
@@ -3636,8 +4010,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="50" data-linenumber="7">
-            <span class="hits">50</span>
+          <li class="covered" data-hits="52" data-linenumber="7">
+            <span class="hits">52</span>
             
 
             
@@ -3702,8 +4076,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="28" data-linenumber="13">
-            <span class="hits">28</span>
+          <li class="covered" data-hits="31" data-linenumber="13">
+            <span class="hits">31</span>
             
 
             
@@ -3713,8 +4087,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="32" data-linenumber="14">
-            <span class="hits">32</span>
+          <li class="covered" data-hits="36" data-linenumber="14">
+            <span class="hits">36</span>
             
 
             
@@ -3724,8 +4098,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="32" data-linenumber="15">
-            <span class="hits">32</span>
+          <li class="covered" data-hits="36" data-linenumber="15">
+            <span class="hits">36</span>
             
 
             
@@ -3790,8 +4164,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="28" data-linenumber="21">
-            <span class="hits">28</span>
+          <li class="covered" data-hits="31" data-linenumber="21">
+            <span class="hits">31</span>
             
 
             
@@ -3801,8 +4175,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="44" data-linenumber="22">
-            <span class="hits">44</span>
+          <li class="covered" data-hits="52" data-linenumber="22">
+            <span class="hits">52</span>
             
 
             
@@ -3812,8 +4186,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="44" data-linenumber="23">
-            <span class="hits">44</span>
+          <li class="covered" data-hits="52" data-linenumber="23">
+            <span class="hits">52</span>
             
 
             
@@ -3823,8 +4197,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="44" data-linenumber="24">
-            <span class="hits">44</span>
+          <li class="covered" data-hits="52" data-linenumber="24">
+            <span class="hits">52</span>
             
 
             
@@ -3878,8 +4252,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="29">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="7" data-linenumber="29">
+            <span class="hits">7</span>
             
 
             
@@ -3922,8 +4296,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="23" data-linenumber="33">
-            <span class="hits">23</span>
+          <li class="covered" data-hits="26" data-linenumber="33">
+            <span class="hits">26</span>
             
 
             
@@ -3933,8 +4307,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="23" data-linenumber="34">
-            <span class="hits">23</span>
+          <li class="covered" data-hits="26" data-linenumber="34">
+            <span class="hits">26</span>
             
 
             
@@ -3944,8 +4318,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="23" data-linenumber="35">
-            <span class="hits">23</span>
+          <li class="covered" data-hits="26" data-linenumber="35">
+            <span class="hits">26</span>
             
 
             
@@ -3955,8 +4329,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="23" data-linenumber="36">
-            <span class="hits">23</span>
+          <li class="covered" data-hits="26" data-linenumber="36">
+            <span class="hits">26</span>
             
 
             
@@ -4010,8 +4384,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="57" data-linenumber="41">
-            <span class="hits">57</span>
+          <li class="covered" data-hits="63" data-linenumber="41">
+            <span class="hits">63</span>
             
 
             
@@ -4214,13 +4588,13 @@
 
             
 
-            <code class="ruby">Then(&quot;I should be on the share page for {string}&quot;) do |list_name|</code>
+            <code class="ruby">Then(&#39;I should be on the share page for {string}&#39;) do |list_name|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="60">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="60">
+            <span class="hits">4</span>
             
 
             
@@ -4230,8 +4604,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="61">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="61">
+            <span class="hits">4</span>
             
 
             
@@ -4247,7 +4621,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -4274,8 +4648,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="65">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="65">
+            <span class="hits">4</span>
             
 
             
@@ -4395,84 +4769,29 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="76">
-            
-            
-
-            
-
-            <code class="ruby"># ACTIONS ----------------------------------------------------------</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="77">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="78">
+          <li class="covered" data-hits="1" data-linenumber="76">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">When(&#39;I login as {string} with password {string}&#39;) do |string, string2|</code>
+            <code class="ruby">Then(&#39;I should be on the archived lists page&#39;) do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="79">
-            <span class="hits">5</span>
+          <li class="covered" data-hits="2" data-linenumber="77">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">  visit(new_user_session_path)</code>
+            <code class="ruby">  expect(page.current_path).to eq(reactivate_todo_list_path(TodoList.all.where(archived: false).first))</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="80">
-            <span class="hits">5</span>
-            
-
-            
-
-            <code class="ruby">  fill_in &#39;Email&#39;, with: string</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="5" data-linenumber="81">
-            <span class="hits">5</span>
-            
-
-            
-
-            <code class="ruby">  fill_in &#39;Password&#39;, with: string2</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="5" data-linenumber="82">
-            <span class="hits">5</span>
-            
-
-            
-
-            <code class="ruby">  click_on &#39;Log in&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="83">
+          <li class="never" data-hits="" data-linenumber="78">
             
             
 
@@ -4483,7 +4802,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="84">
+          <li class="never" data-hits="" data-linenumber="79">
             
             
 
@@ -4494,7 +4813,106 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="85">
+          <li class="never" data-hits="" data-linenumber="80">
+            
+            
+
+            
+
+            <code class="ruby"># ACTIONS ----------------------------------------------------------</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="81">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="82">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">When(&#39;I login as {string} with password {string}&#39;) do |string, string2|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="83">
+            <span class="hits">6</span>
+            
+
+            
+
+            <code class="ruby">  visit(new_user_session_path)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="84">
+            <span class="hits">6</span>
+            
+
+            
+
+            <code class="ruby">  fill_in &#39;Email&#39;, with: string</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="85">
+            <span class="hits">6</span>
+            
+
+            
+
+            <code class="ruby">  fill_in &#39;Password&#39;, with: string2</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="86">
+            <span class="hits">6</span>
+            
+
+            
+
+            <code class="ruby">  click_on &#39;Log in&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="87">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="88">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="89">
             <span class="hits">1</span>
             
 
@@ -4505,57 +4923,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="86">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">  visit(new_user_session_path)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="87">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">  click_on &#39;Sign up&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="88">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">  fill_in &#39;Email&#39;, with: string</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="89">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">  fill_in &#39;Password&#39;, with: string2</code>
-          </li>
-        </div>
-      
-        <div>
           <li class="covered" data-hits="2" data-linenumber="90">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">  fill_in &#39;Password confirmation&#39;, with: string2</code>
+            <code class="ruby">  visit(new_user_session_path)</code>
           </li>
         </div>
       
@@ -4571,7 +4945,51 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="92">
+          <li class="covered" data-hits="2" data-linenumber="92">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">  fill_in &#39;Email&#39;, with: string</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="93">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">  fill_in &#39;Password&#39;, with: string2</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="94">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">  fill_in &#39;Password confirmation&#39;, with: string2</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="95">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">  click_on &#39;Sign up&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="96">
             
             
 
@@ -4582,7 +5000,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="93">
+          <li class="never" data-hits="" data-linenumber="97">
             
             
 
@@ -4593,7 +5011,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="94">
+          <li class="covered" data-hits="1" data-linenumber="98">
             <span class="hits">1</span>
             
 
@@ -4604,7 +5022,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="95">
+          <li class="covered" data-hits="9" data-linenumber="99">
             <span class="hits">9</span>
             
 
@@ -4615,7 +5033,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="96">
+          <li class="covered" data-hits="9" data-linenumber="100">
             <span class="hits">9</span>
             
 
@@ -4626,57 +5044,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="97">
+          <li class="covered" data-hits="9" data-linenumber="101">
             <span class="hits">9</span>
             
 
             
 
             <code class="ruby">  expect(found).to be(true)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="98">
-            
-            
-
-            
-
-            <code class="ruby">end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="99">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="100">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">When(&#39;I press {string}&#39;) do |button|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="39" data-linenumber="101">
-            <span class="hits">39</span>
-            
-
-            
-
-            <code class="ruby">  click_on button</code>
           </li>
         </div>
       
@@ -4709,40 +5083,40 @@
 
             
 
-            <code class="ruby">When(&#39;I fill in the following:&#39;) do |table|</code>
+            <code class="ruby">When(&#39;I click the {string} button for the to-do list {string}&#39;) do |button_class, list|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="105">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="105">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">  # table is a Cucumber::MultilineArgument::DataTable</code>
+            
+
+            <code class="ruby">  found = false</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="106">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="2" data-linenumber="106">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">  table.hashes.each do |field|</code>
+            <code class="ruby">  found = true unless find(&#39;tr&#39;, text: list).find(&quot;.#{button_class}&quot;).click.nil?</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="16" data-linenumber="107">
-            <span class="hits">16</span>
+          <li class="covered" data-hits="2" data-linenumber="107">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    fill_in field[&#39;Field&#39;], with: field[&#39;Value&#39;]</code>
+            <code class="ruby">  expect(found).to be(true)</code>
           </li>
         </div>
       
@@ -4753,7 +5127,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -4764,40 +5138,40 @@
 
             
 
-            <code class="ruby">end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="110">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="111">
+          <li class="covered" data-hits="1" data-linenumber="110">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">When(&#39;I click {string}&#39;) do |string|</code>
+            <code class="ruby">When(&#39;I press {string}&#39;) do |button|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="112">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="47" data-linenumber="111">
+            <span class="hits">47</span>
             
 
             
 
-            <code class="ruby">  find_link(id: string).click</code>
+            <code class="ruby">  click_on button</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="112">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -4808,18 +5182,18 @@
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="114">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="114">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">When(&#39;I fill in the following:&#39;) do |table|</code>
           </li>
         </div>
       
@@ -4830,29 +5204,29 @@
 
             
 
-            <code class="ruby"># STATES -----------------------------------------------------------</code>
+            <code class="ruby">  # table is a Cucumber::MultilineArgument::DataTable</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="116">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="12" data-linenumber="116">
+            <span class="hits">12</span>
             
 
             
 
-            <code class="ruby">Then(&#39;{string} should be an active task&#39;) do |string|</code>
+            <code class="ruby">  table.hashes.each do |field|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="43" data-linenumber="117">
-            <span class="hits">43</span>
+          <li class="covered" data-hits="17" data-linenumber="117">
+            <span class="hits">17</span>
             
 
             
 
-            <code class="ruby">  expect(all(&#39;td.task_name&#39;).any? { |td| td.text == string }).to eq(true)</code>
+            <code class="ruby">    fill_in field[&#39;Field&#39;], with: field[&#39;Value&#39;]</code>
           </li>
         </div>
       
@@ -4863,7 +5237,7 @@
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -4874,40 +5248,40 @@
 
             
 
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="120">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="120">
+          <li class="covered" data-hits="1" data-linenumber="121">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">Then(&#39;{string} should be a completed task&#39;) do |string|</code>
+            <code class="ruby">When(&#39;I click {string}&#39;) do |string|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="121">
+          <li class="covered" data-hits="6" data-linenumber="122">
             <span class="hits">6</span>
             
 
             
 
-            <code class="ruby">  expect(all(&#39;td.completed_task_name&#39;).any? { |td| td.text == string }).to eq(true)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="122">
-            
-            
-
-            
-
-            <code class="ruby">end</code>
+            <code class="ruby">  find_link(id: string).click</code>
           </li>
         </div>
       
@@ -4918,12 +5292,122 @@
 
             
 
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="124">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="124">
+          <li class="never" data-hits="" data-linenumber="125">
+            
+            
+
+            
+
+            <code class="ruby"># STATES -----------------------------------------------------------</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="126">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">Then(&#39;{string} should be an active task&#39;) do |string|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="43" data-linenumber="127">
+            <span class="hits">43</span>
+            
+
+            
+
+            <code class="ruby">  expect(all(&#39;td.task_name&#39;).any? { |td| td.text == string }).to eq(true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="128">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="129">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="130">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">Then(&#39;{string} should be a completed task&#39;) do |string|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="131">
+            <span class="hits">6</span>
+            
+
+            
+
+            <code class="ruby">  expect(all(&#39;td.completed_task_name&#39;).any? { |td| td.text == string }).to eq(true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="132">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="133">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="134">
             <span class="hits">1</span>
             
 
@@ -4934,7 +5418,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="125">
+          <li class="covered" data-hits="2" data-linenumber="135">
             <span class="hits">2</span>
             
 
@@ -4945,7 +5429,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="126">
+          <li class="never" data-hits="" data-linenumber="136">
             
             
 
@@ -4956,7 +5440,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="127">
+          <li class="never" data-hits="" data-linenumber="137">
             
             
 
@@ -4967,7 +5451,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="128">
+          <li class="covered" data-hits="1" data-linenumber="138">
             <span class="hits">1</span>
             
 
@@ -4978,123 +5462,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="129">
+          <li class="covered" data-hits="1" data-linenumber="139">
             <span class="hits">1</span>
             
 
             
 
             <code class="ruby">  expect(all(&#39;td.completed_task_name&#39;).any? { |td| td.text == string }).to eq(false)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="130">
-            
-            
-
-            
-
-            <code class="ruby">end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="131">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="132">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">Then(&#39;the task {string} should exist&#39;) do |string|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="33" data-linenumber="133">
-            <span class="hits">33</span>
-            
-
-            
-
-            <code class="ruby">  exists = (all(&#39;td.task_name&#39;).to_a + all(&#39;td.completed_task_name&#39;).to_a).any? { |td| td.text == string }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="16" data-linenumber="134">
-            <span class="hits">16</span>
-            
-
-            
-
-            <code class="ruby">  expect(exists).to be(true)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="135">
-            
-            
-
-            
-
-            <code class="ruby">end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="136">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="137">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">Then(&#39;the task {string} should not exist&#39;) do |string|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="24" data-linenumber="138">
-            <span class="hits">24</span>
-            
-
-            
-
-            <code class="ruby">  exists = (all(&#39;td.task_name&#39;).to_a + all(&#39;td.completed_task_name&#39;).to_a).any? { |td| td.text == string }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="14" data-linenumber="139">
-            <span class="hits">14</span>
-            
-
-            
-
-            <code class="ruby">  expect(exists).to be(false)</code>
           </li>
         </div>
       
@@ -5127,29 +5501,29 @@
 
             
 
-            <code class="ruby">Then(&#39;{string} should appear before {string}&#39;) do |string, string2|</code>
+            <code class="ruby">Then(&#39;the task {string} should exist&#39;) do |string|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="143">
-            <span class="hits">12</span>
+          <li class="covered" data-hits="35" data-linenumber="143">
+            <span class="hits">35</span>
             
 
             
 
-            <code class="ruby">  str_index = 0</code>
+            <code class="ruby">  exists = (all(&#39;td.task_name&#39;).to_a + all(&#39;td.completed_task_name&#39;).to_a).any? { |td| td.text == string }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="144">
-            <span class="hits">12</span>
+          <li class="covered" data-hits="17" data-linenumber="144">
+            <span class="hits">17</span>
             
 
             
 
-            <code class="ruby">  str2_index = 0</code>
+            <code class="ruby">  expect(exists).to be(true)</code>
           </li>
         </div>
       
@@ -5160,51 +5534,51 @@
 
             
 
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="146">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="146">
-            <span class="hits">12</span>
+          <li class="covered" data-hits="1" data-linenumber="147">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  all(&#39;td.task_name&#39;).each_with_index do |td, i|</code>
+            <code class="ruby">Then(&#39;the task {string} should not exist&#39;) do |string|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="36" data-linenumber="147">
-            <span class="hits">36</span>
+          <li class="covered" data-hits="26" data-linenumber="148">
+            <span class="hits">26</span>
             
 
             
 
-            <code class="ruby">    str_index = i if td.text == string</code>
+            <code class="ruby">  exists = (all(&#39;td.task_name&#39;).to_a + all(&#39;td.completed_task_name&#39;).to_a).any? { |td| td.text == string }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="36" data-linenumber="148">
-            <span class="hits">36</span>
+          <li class="covered" data-hits="15" data-linenumber="149">
+            <span class="hits">15</span>
             
 
             
 
-            <code class="ruby">    str2_index = i if td.text == string2</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="149">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
+            <code class="ruby">  expect(exists).to be(false)</code>
           </li>
         </div>
       
@@ -5215,7 +5589,7 @@
 
             
 
-            <code class="ruby">  # debugger</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -5231,13 +5605,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="152">
-            <span class="hits">12</span>
+          <li class="covered" data-hits="1" data-linenumber="152">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  correct_order = str_index &lt; str2_index</code>
+            <code class="ruby">Then(&#39;{string} should appear before {string}&#39;) do |string, string2|</code>
           </li>
         </div>
       
@@ -5248,18 +5622,18 @@
 
             
 
-            <code class="ruby">  expect(correct_order).to be(true)</code>
+            <code class="ruby">  str_index = 0</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="154">
-            
-            
-
+          <li class="covered" data-hits="12" data-linenumber="154">
+            <span class="hits">12</span>
             
 
-            <code class="ruby">end</code>
+            
+
+            <code class="ruby">  str2_index = 0</code>
           </li>
         </div>
       
@@ -5275,35 +5649,35 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="156">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="12" data-linenumber="156">
+            <span class="hits">12</span>
             
 
             
 
-            <code class="ruby">Then(&#39;I should see {string}&#39;) do |string|</code>
+            <code class="ruby">  all(&#39;td.task_name&#39;).each_with_index do |td, i|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="157">
-            <span class="hits">5</span>
+          <li class="covered" data-hits="36" data-linenumber="157">
+            <span class="hits">36</span>
             
 
             
 
-            <code class="ruby">  expect(page).to have_content(string)</code>
+            <code class="ruby">    str_index = i if td.text == string</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="158">
-            
-            
-
+          <li class="covered" data-hits="36" data-linenumber="158">
+            <span class="hits">36</span>
             
 
-            <code class="ruby">end</code>
+            
+
+            <code class="ruby">    str2_index = i if td.text == string2</code>
           </li>
         </div>
       
@@ -5314,51 +5688,51 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="160">
+            
+            
+
+            
+
+            <code class="ruby">  # debugger</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="161">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="160">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="12" data-linenumber="162">
+            <span class="hits">12</span>
             
 
             
 
-            <code class="ruby">Then(&#39;the current active list should be {string}&#39;) do |string|</code>
+            <code class="ruby">  correct_order = str_index &lt; str2_index</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="58" data-linenumber="161">
-            <span class="hits">58</span>
+          <li class="covered" data-hits="12" data-linenumber="163">
+            <span class="hits">12</span>
             
 
             
 
-            <code class="ruby">  within(&#39;#active_list&#39;) do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="58" data-linenumber="162">
-            <span class="hits">58</span>
-            
-
-            
-
-            <code class="ruby">    expect(page).to have_content(string)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="163">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
+            <code class="ruby">  expect(correct_order).to be(true)</code>
           </li>
         </div>
       
@@ -5391,18 +5765,18 @@
 
             
 
-            <code class="ruby">Then(&#39;{string} should be the currently active sorting function&#39;) do |string|</code>
+            <code class="ruby">Then(&#39;I should see {string}&#39;) do |string|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="167">
-            <span class="hits">8</span>
+          <li class="covered" data-hits="9" data-linenumber="167">
+            <span class="hits">9</span>
             
 
             
 
-            <code class="ruby">  find_link(class: &#39;active&#39;, id: string).should_not be_nil</code>
+            <code class="ruby">  expect(page).to have_content(string)</code>
           </li>
         </div>
       
@@ -5435,24 +5809,24 @@
 
             
 
-            <code class="ruby">Then(&#39;the current user should be {string}&#39;) do |string|</code>
+            <code class="ruby">Then(&#39;the current active list should be {string}&#39;) do |string|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="171">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="64" data-linenumber="171">
+            <span class="hits">64</span>
             
 
             
 
-            <code class="ruby">  within(&#39;#current_user&#39;) do</code>
+            <code class="ruby">  within(&#39;#active_list&#39;) do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="172">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="64" data-linenumber="172">
+            <span class="hits">64</span>
             
 
             
@@ -5501,29 +5875,29 @@
 
             
 
-            <code class="ruby">Then(&#39;the list {string} should exist&#39;) do |string|</code>
+            <code class="ruby">Then(&#39;{string} should be the currently active sorting function&#39;) do |string|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="56" data-linenumber="177">
-            <span class="hits">56</span>
+          <li class="covered" data-hits="8" data-linenumber="177">
+            <span class="hits">8</span>
             
 
             
 
-            <code class="ruby">  within(&#39;#user_todo_lists&#39;) do</code>
+            <code class="ruby">  find_link(class: &#39;active&#39;, id: string).should_not be_nil</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="56" data-linenumber="178">
-            <span class="hits">56</span>
+          <li class="never" data-hits="" data-linenumber="178">
+            
             
 
             
 
-            <code class="ruby">    expect(page).to have_content(string)</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -5534,62 +5908,62 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="180">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">Then(&#39;the current user should be {string}&#39;) do |string|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="8" data-linenumber="181">
+            <span class="hits">8</span>
+            
+
+            
+
+            <code class="ruby">  within(&#39;#current_user&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="8" data-linenumber="182">
+            <span class="hits">8</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content(string)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="183">
+            
+            
+
+            
+
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="180">
+          <li class="never" data-hits="" data-linenumber="184">
             
             
 
             
 
             <code class="ruby">end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="181">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="182">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">Then(&#39;the list {string} should not exist&#39;) do |string|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="6" data-linenumber="183">
-            <span class="hits">6</span>
-            
-
-            
-
-            <code class="ruby">  within(&#39;#user_todo_lists&#39;) do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="6" data-linenumber="184">
-            <span class="hits">6</span>
-            
-
-            
-
-            <code class="ruby">    expect(page).to have_no_content(string)</code>
           </li>
         </div>
       
@@ -5600,51 +5974,51 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="186">
-            
-            
-
-            
-
-            <code class="ruby">end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="187">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="188">
+          <li class="covered" data-hits="1" data-linenumber="186">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">Then(&#39;the current active list should be empty&#39;) do</code>
+            <code class="ruby">Then(&#39;the list {string} should exist&#39;) do |string|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="189">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="61" data-linenumber="187">
+            <span class="hits">61</span>
             
 
             
 
-            <code class="ruby">  expect((all(&#39;td.task_name&#39;).length + all(&#39;td.completed_task_name&#39;).length).zero?).to be(true)</code>
+            <code class="ruby">  within(&#39;#user_todo_lists&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="61" data-linenumber="188">
+            <span class="hits">61</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content(string)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="189">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -5677,13 +6051,123 @@
 
             
 
+            <code class="ruby">Then(&#39;the list {string} should not exist&#39;) do |string|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="10" data-linenumber="193">
+            <span class="hits">10</span>
+            
+
+            
+
+            <code class="ruby">  within(&#39;#user_todo_lists&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="10" data-linenumber="194">
+            <span class="hits">10</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_no_content(string)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="195">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="196">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="197">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="198">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">Then(&#39;the current active list should be empty&#39;) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="199">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  expect((all(&#39;td.task_name&#39;).length + all(&#39;td.completed_task_name&#39;).length).zero?).to be(true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="200">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="201">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="202">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">Then(&#39;the flash message should be {string}&#39;) do |string|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="193">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="203">
+            <span class="hits">4</span>
             
 
             
@@ -5693,7 +6177,95 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="194">
+          <li class="never" data-hits="" data-linenumber="204">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="205">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="206">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">Then(&#39;I should see {string} displayed on the page as an archived list&#39;) do |string|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="207">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">  expect(all(&#39;td.list_name&#39;).any? { |entry| entry.text == string }).to be(true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="208">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="209">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="210">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">Then(&#39;the list {string} should not exist on the archived lists page&#39;) do |string|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="211">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  expect(all(&#39;td.list_name&#39;).any? { |entry| entry.text == string }).to be(false)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="212">
             
             
 
