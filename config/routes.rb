@@ -5,13 +5,12 @@ Rails.application.routes.draw do
   root 'todo_lists#index'
 
   resources :todo_lists do
-    get :share, on: :member
-    post :share_list, on: :member
-    get :reactivate, on: :member
-
     member do
       patch :archive
       patch :unarchive
+      get :share
+      post :share_list
+      get :reactivate
     end
 
     resources :todo_entries do
